@@ -16,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-bottom: 5rem;
 }
 #root{
   width: 100%;
