@@ -68,15 +68,15 @@ function TopStories() {
         setCurrentIndex(index);
     };
 
-    if (isLoading) {
-        return <div className={styles.loading}>Loading...</div>;
-    }
+    // if (isLoading) {
+    //     return <div className={styles.loading}>Loading...</div>;
+    // }
 
     if (error) {
         return <div>Error fetching posts: {error.message}</div>;
     }
 
-    if (!Last5Posts.length) {
+    if (!Last5Posts.length < 0) {
         return <div>No posts found</div>;
     }
 

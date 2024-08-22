@@ -47,15 +47,12 @@ function Politics_Section() {
     const Last4Posts = posts.slice(1, 5);
     const LastOne = posts[0];
 
-    if (isLoading) {
-        return <div className={styles.loading}>Loading...</div>;
-    }
 
     if (error) {
         return <div>Error fetching posts: {error.message}</div>;
     }
 
-    if (!posts.length) {
+    if (!posts.length < 0) {
         return <div>No posts found</div>;
     }
 

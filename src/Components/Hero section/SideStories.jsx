@@ -40,15 +40,13 @@ function SideStories() {
         fetchPosts();
     }, []);
 
-    if (isLoading) {
-        return <div className={styles.loading}>Loading...</div>;
-    }
+
 
     if (error) {
         return <div>Error fetching posts: {error.message}</div>;
     }
 
-    if (!posts.length) {
+    if (!posts.length < 0) {
         return <div>No posts found</div>;
     }
 
