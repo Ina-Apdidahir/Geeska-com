@@ -1,0 +1,278 @@
+.container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 3rem 0.1rem;
+    overflow: hidden;
+    background-color: #e0e7e2;
+}
+
+.section_head {
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Title h1 {
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 0px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+    line-height: 65%;
+    color: #20603C;
+}
+
+.Btn {
+    display: flex;
+    align-items: center;
+}
+
+.Btn button {
+    color: #231e18;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    border: 0;
+    background-color: transparent;
+}
+
+.more {
+    width: 15px;
+    color: #20603C;
+}
+
+.Opinion_stories {
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.story_1 {
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.story_1 .image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+}
+.storycontent{
+    width: 100%;
+}
+.story_1 .Author,
+.side_Story .Side_author{
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.Author .authorImg {
+    overflow: hidden;
+}
+.Author .authorImg img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.Author .AuthorName p,
+.side_Story .Side_author p {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+    color: #231e18;
+    text-transform: uppercase;
+}
+
+.Qoutes img {
+    width: 2rem;
+}
+
+
+.story_1 .Texts h1 {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 400;
+    color: #20603c;
+    margin: 0.5rem 0;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2em;
+    max-height: 3.6em;
+}
+
+
+.story_1 .Texts p,
+.Side_Title .side_Texts p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
+    color: #231e18;
+    text-align: justify;
+    font-weight: 300;
+    line-height: 120%;
+    margin-bottom: 2rem;
+}
+
+
+
+.sideStories{
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem 0.5rem;
+    margin: 1rem 0;
+}
+.side_Story{
+    width: 48%;
+    padding: 0.5rem;
+    position: relative;
+    border-top: .01rem solid hsla(117, 75%, 56%, 0.25);
+}
+.story_container{
+    width: 100%;
+}
+.story_container::before{
+    content: "";
+    position: absolute;
+    background-color: #20603C;
+    top: -.25rem;
+    left: 0;
+    height: .5rem;
+    width: .5rem;
+    border-radius: 50%;
+}
+
+.Side_author .image img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+.side_Qoutes img{
+width: 1.5rem;
+}
+.Side_Title{
+    margin: 0.7rem 0;
+}
+
+.side_Texts h1{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    position: relative;
+    color: #20603c;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    max-height: 4.8em; 
+}
+
+.Side_Title .side_Texts p{
+    display: none;
+}
+
+
+.story_1:hover .image img{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.7s ease-in-out;
+   }
+
+.story_1:hover .Title  h1,
+.side_Story:hover .Side_Title .side_Texts h1 {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+@media screen and (min-width: 768px){
+    .story_1 .Texts p {
+        font-size: 16px;
+        line-height: 140%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 4rem 0.2rem;
+    }
+
+    .Btn button {
+        font-size: 18px;
+    }
+
+    .story_1 .image {
+        width: 48%;
+        overflow: hidden;
+    }
+    
+    .storycontent{
+        width: 48%;
+    }
+
+    .Title{
+        display: flex;
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    .Side_Title .side_Texts p{
+        display: initial;
+        font-size: 14px;
+        color: #231e18;
+        text-align: justify;
+        font-weight: 300;
+        line-height: 120%;
+        margin: 0.75rem 0;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: normal;
+        max-height: 4.8em; 
+
+    }
+    .side_Story{
+        width: 24%;
+    }
+    .Side_Title{
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+}

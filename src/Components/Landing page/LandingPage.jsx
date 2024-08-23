@@ -2,14 +2,16 @@
 import HeadSection from "../Header Section/Header"
 import Hero from '../Hero section/Hero'
 import Politics_Section from "../POLITICS/Politics_Section"
+import Opinion_Section from "../OPINION/Opinion_Sec"
 
-function LandingPage(){
+function LandingPage() {
 
-    return(
+    return (
         <>
-        <HeadSection />
-        <Hero />
-        <Politics_Section />
+            <HeadSection />
+            <Hero />
+            <Politics_Section />
+            <Opinion_Section />
         </>
     )
 }

@@ -1,44 +1,52 @@
-
-.SideStories{
+.SideStories {
     display: none;
 }
 
-@media screen and (min-width: 1024px){
-    .SideStories{
+@media screen and (min-width: 1024px) {
+    .SideStories {
         padding: 0.4rem 0.4rem 1.2rem 0.4rem;
         display: initial;
         width: 40%;
     }
-    .story{
+
+    .story {
         width: 100%;
         display: flex;
         gap: 0.7rem;
         padding: 1rem 0 0.5rem 0;
         border-top: 1px solid hsla(0, 0%, 100%, 0.4);
     }
-    .story:nth-child(1){
+
+    .story:nth-child(1) {
         border: none;
         padding-top: 0;
     }
-    .image{
+
+    .image {
         width: 35%;
+        overflow: hidden;
     }
-    .image img{
+
+    .image img {
         width: 100%;
     }
-    .content{
+
+    .content {
         width: 64%;
     }
+
     .story .refrence {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
     }
-    .category{
+
+    .category {
         display: flex;
         align-items: center;
     }
+
     .category p {
         cursor: pointer;
         background-color: #73497c;
@@ -49,7 +57,7 @@
         border-radius: 2px;
         display: inline;
     }
-    
+
     .story .refrence .auther {
         color: #FFFFFF;
         text-transform: uppercase;
@@ -59,8 +67,8 @@
         padding: 0.1rem 0;
         border-radius: 2px;
     }
-     
-    .story .title h1{
+
+    .story .title h1 {
         color: #FFFFFF;
         font-size: 22px;
         font-weight: 400;
@@ -72,8 +80,23 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: normal;
-        line-height: 1.2em; /* Adjust line height to control the spacing between lines */
-        max-height: 2.4em; /* This should be 2 times the line height */
+        line-height: 1.2em;
+        /* Adjust line height to control the spacing between lines */
+        max-height: 2.4em;
+        /* This should be 2 times the line height */
 
+    }
+
+    .story:hover .image img{
+        cursor: pointer;
+        transform: scale(1.03);
+        transition: all 0.4s ease-in-out;
+    }
+
+    .story:hover .title h1{
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: #FFFFFF;
+        transition: all 0.2s ease-in-out;
     }
 }

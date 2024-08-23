@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 2rem 0.1rem 0.1rem 0.1rem;
+    padding: 3rem 0.1rem;
     overflow: hidden;
     background-color: #FFFFFF;
 }
@@ -54,20 +54,23 @@
     padding: 0.5rem  0.75rem;
 }
 
-
 .story .image {
     width: 100%;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
 }
 
 .story .image img {
     width: 100%;
 }
 
-.story .refrence {
+.story .refrence,
+.sideStory .refrence {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
+    margin: 0.4rem 0 0.25rem 0 ;
 }
 
 .category {
@@ -88,7 +91,7 @@
 
 .refrence .auther {
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
     line-height: 120%;
     padding: 0.1rem 0;
@@ -107,10 +110,10 @@
     text-overflow: ellipsis;
     white-space: normal;
     line-height: 1.2em;
-    /* Adjust line height to control the spacing between lines */
     max-height: 3.6em;
-    /* This should be 2 times the line height */
 }
+
+
 
 .story .subtitle {
     overflow: hidden;
@@ -139,6 +142,7 @@
 
 .sideStory .side_image {
     width: 100%;
+    overflow: hidden;
 }
 
 .sideStory .side_image img {
@@ -159,9 +163,7 @@
     text-overflow: ellipsis;
     white-space: normal;
     line-height: 1.2em;
-    /* Adjust line height to control the spacing between lines */
     max-height: 4.8em;
-    /* This should be 2 times the line height */
 }
 
 
@@ -170,12 +172,49 @@
 }
 
 
-@media screen and (min-width: 1024px) {
 
+.story:hover .image  img,
+.sideStory:hover .side_image img{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.4s ease-in-out;
+   }
+
+.story:hover .title,
+.sideStory:hover .side_title {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+
+    .story .refrence,
+    .sideStory .refrence  {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 4rem 0.2rem;
+    }
+    
     .Btn button {
         font-size: 18px;
     }
-    
+    .story .refrence {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    .refrence .auther {
+        font-size: 12px;
+        font-weight: 300;
+    }
     .Politic_stories {
         width: 98%;
         display: flex;
