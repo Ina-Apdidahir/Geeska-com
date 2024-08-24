@@ -80,46 +80,50 @@ function TopStories() {
         return <div>No posts found</div>;
     }
 
-  
+
 
     return (
-        <div className={styles.TopStories}>
-            <div className={`${styles.movebtn} ${styles.previous}`} onClick={previousSlide}>
-                <img src={previous} alt="Previous" />
-            </div>
-            <div className={styles.storiesContainer}>
-                {Last5Posts.map((post, index) => (
-                    <div key={index} className={`${styles.story} ${index === currentIndex ? styles.active : ''}`}>
-                        {post.mainImage && post.mainImage.asset && (
-                            <div className={styles.image}>
-                                <img src={post.mainImage.asset.url} alt={post.mainImage.alt || 'Story Image'} />
-                            </div>
-                        )}
-                        <div className={styles.refrence}>
-                            <div className={styles.category}>
-                                <p>{post.categories.map(category => category.title).join(', ')}</p>
-                            </div>
-                            <p className={styles.auther}>{post.author}</p>
-                        </div>
-                        <h1 className={styles.title}>{post?.title}</h1>
+        <>
+            {posts && posts.length > 0 && (
+                <div className={styles.TopStories}>
+                    <div className={`${styles.movebtn} ${styles.previous}`} onClick={previousSlide}>
+                        <img src={previous} alt="Previous" />
                     </div>
-                ))}
-            </div>
-            <div className={`${styles.movebtn} ${styles.Next}`} onClick={nextSlide}>
-                <img src={Next} alt="Next" />
-            </div>
+                    <div className={styles.storiesContainer}>
+                        {Last5Posts.map((post, index) => (
+                            <div key={index} className={`${styles.story} ${index === currentIndex ? styles.active : ''}`}>
+                                {post.mainImage && post.mainImage.asset && (
+                                    <div className={styles.image}>
+                                        <img src={post.mainImage.asset.url} alt={post.mainImage.alt || 'Story Image'} />
+                                    </div>
+                                )}
+                                <div className={styles.refrence}>
+                                    <div className={styles.category}>
+                                        <p>{post.categories.map(category => category.title).join(', ')}</p>
+                                    </div>
+                                    <p className={styles.auther}>{post.author}</p>
+                                </div>
+                                <h1 className={styles.title}>{post?.title}</h1>
+                            </div>
+                        ))}
+                    </div>
+                    <div className={`${styles.movebtn} ${styles.Next}`} onClick={nextSlide}>
+                        <img src={Next} alt="Next" />
+                    </div>
 
-            {/* Pagination */}
-            <div className={styles.pagination}>
-                {posts.map((_, index) => (
-                    <span
-                        key={index}
-                        className={`${styles.dot} ${index === currentIndex ? styles.active : ''}`}
-                        onClick={() => goToSlide(index)}
-                    />
-                ))}
-            </div>
-        </div>
+                    {/* Pagination */}
+                    <div className={styles.pagination}>
+                        {Last5Posts.map((_, index) => (
+                            <span
+                                key={index}
+                                className={`${styles.dot} ${index === currentIndex ? styles.active : ''}`}
+                                onClick={() => goToSlide(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
 
