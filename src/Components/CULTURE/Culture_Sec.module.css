@@ -8,7 +8,7 @@
     gap: 20px;
     padding: 3rem 0.1rem;
     overflow: hidden;
-    background-color: #e0e7e2;
+    background-color: #FFFFFF;
 }
 
 .section_head {
@@ -27,7 +27,7 @@
     display: flex;
     align-items: flex-end;
     line-height: 65%;
-    color: #20603C;
+    color: #73497c;
 }
 
 .Btn {
@@ -36,7 +36,7 @@
 }
 
 .Btn button {
-    color: #231e18;
+    color: #73497c;
     font-size: 15px;
     font-weight: 400;
     line-height: 24px;
@@ -46,8 +46,9 @@
 
 .more {
     width: 15px;
-    color: #20603C;
+    color: #73497c;
 }
+
 
 
 .Stories{
@@ -106,7 +107,7 @@
 
 .category p {
     cursor: pointer;
-    background-color: #405981;
+    background-color: #73497c;
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 10px;
@@ -124,11 +125,20 @@
     border-radius: 2px;
 }
 
-@media screen and (min-width: 768px){
-    .Story{
-        width: 32%;
-    }
+
+.Story:hover .image  img{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.4s ease-in-out;
+   }
+
+.Story:hover .title{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
 }
+
+
 
 @media screen and (min-width: 1024px){
 

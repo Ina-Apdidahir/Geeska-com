@@ -1,0 +1,245 @@
+.container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 3rem 0.1rem;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.section_head {
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Title h1 {
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 0px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+    line-height: 65%;
+    color: #405981;
+}
+
+.Btn {
+    display: flex;
+    align-items: center;
+}
+
+.Btn button {
+    color: #231e18;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    border: 0;
+    background-color: transparent;
+}
+
+.more {
+    width: 15px;
+    color: #405981;
+}
+
+
+.story {
+    width: 100%;
+    padding: 0.5rem  0.75rem;
+}
+
+.story .image {
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+}
+
+.story .image img {
+    width: 100%;
+}
+
+.story .refrence,
+.sideStory .refrence {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.4rem 0 0.25rem 0 ;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+}
+
+.category p {
+    cursor: pointer;
+    background-color: #405981;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    display: inline;
+}
+
+.refrence .auther {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 120%;
+    padding: 0.1rem 0;
+    border-radius: 2px;
+}
+
+.story .title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2em;
+    max-height: 3.6em;
+}
+
+
+
+.story .subtitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    font-size: 14px;
+    color: #231e18;
+    text-align: justify;
+    font-weight: 300;
+    line-height: 120%;
+}
+
+.sideStories {
+    width: 98%;
+    display: flex;
+    padding: 0.5rem 0.75rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.sideStory {
+    width: 47%;
+}
+
+.sideStory .side_image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.sideStory .side_image img {
+    width: 100%;
+}
+
+.side_title {
+    line-height: 120%;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    margin-top: 8px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2em;
+    max-height: 4.8em;
+}
+
+
+.side_subtitle {
+    display: none;
+}
+
+
+
+.story:hover .image  img,
+.sideStory:hover .side_image img{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.4s ease-in-out;
+   }
+
+.story:hover .title,
+.sideStory:hover .side_title {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+
+    .story .refrence,
+    .sideStory .refrence  {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 4rem 0.2rem;
+    }
+    
+    .Btn button {
+        font-size: 18px;
+    }
+    .story .refrence {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+    .refrence .auther {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    .Politic_stories {
+        width: 98%;
+        display: flex;
+    }
+    .section_head {
+       padding: 0 1rem;
+    }
+
+    .side_title{
+        font-size: 20px;
+        line-height: 120%;
+        margin-bottom: 4px;
+    }
+
+    .side_subtitle{
+        color: #231e18;
+    text-align: justify;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 120%;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    }
+}

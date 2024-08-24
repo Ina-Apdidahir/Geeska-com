@@ -47,8 +47,8 @@ function Culture_Section() {
     }, []);
 
 
-    // const Last4Posts = posts.slice(1, 5);
     // const LastOne = posts[0];
+    const Last8Posts = posts.slice(0, 8);
 
 
     if (error) {
@@ -62,7 +62,7 @@ function Culture_Section() {
 
     return (
         <>
-            {posts && posts.length > 0 && (
+            {Last8Posts && Last8Posts.length > 0 && (
                 <div className={styles.container}>
                     <div className={styles.section_head}>
                         <div className={styles.Title}>
@@ -77,7 +77,7 @@ function Culture_Section() {
                     </div>
 
                     <div className={styles.Stories}>
-                        {posts.map((post, index) => (
+                        {Last8Posts.map((post, index) => (
                             <div key={index} className={styles.Story}>
                                 {post.mainImage && post.mainImage.asset && (
                                     <div className={styles.image}>
