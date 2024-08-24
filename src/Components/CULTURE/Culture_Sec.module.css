@@ -1,0 +1,156 @@
+
+.container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 3rem 0.1rem;
+    overflow: hidden;
+    background-color: #e0e7e2;
+}
+
+.section_head {
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Title h1 {
+    margin-bottom: 0;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 0px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-end;
+    line-height: 65%;
+    color: #20603C;
+}
+
+.Btn {
+    display: flex;
+    align-items: center;
+}
+
+.Btn button {
+    color: #231e18;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    border: 0;
+    background-color: transparent;
+}
+
+.more {
+    width: 15px;
+    color: #20603C;
+}
+
+
+.Stories{
+    width: 98%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 0.75rem;
+}
+
+.Story{
+    width: 48%;
+}
+
+.Story .image{
+    width: 100%;
+    overflow: hidden;
+}
+.Story .image img{
+    width: 100%;
+}
+
+.texts .title{
+    color: #231e18;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    text-decoration: none;
+    display: block;
+    line-height: 120%;
+    margin-top: 0.5rem;
+   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.texts .subtitle{
+    display: none;
+}
+
+.Story .refrence{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0.4rem 0 0.25rem 0 ;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+}
+
+.category p {
+    cursor: pointer;
+    background-color: #405981;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    display: inline;
+}
+
+.refrence .auther {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 120%;
+    padding: 0.1rem 0;
+    border-radius: 2px;
+}
+
+@media screen and (min-width: 768px){
+    .Story{
+        width: 32%;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    .texts .title{
+        font-size: 20px;
+    }
+    .Story{
+        width: 24%;
+    }
+
+    .texts .subtitle{
+    color: #231e18;
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 120%;
+    margin: 0.75rem 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    }
+}
