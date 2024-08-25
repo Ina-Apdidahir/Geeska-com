@@ -5,6 +5,7 @@ import client from '../../../sanity_client/sanityClient';
 import { PortableText } from '@portabletext/react';
 
 import styles from './Multimedia.module.css'
+import Floor from '../../assets/web images/floor.png'
 
 const Multimedia = () => {
 
@@ -72,13 +73,14 @@ const Multimedia = () => {
                 <div className={styles.container}>
                     <div className={styles.section_head}>
                         <div className={styles.Title}>
+                        <img src={Floor} alt="" />
                             <h1>MULTIMEDIA</h1>
                         </div>
                         <div className={styles.Btn}>
-                            <button>More</button>
-                            <svg className={styles.more} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" />
-                            </svg>
+                            <button>more  </button>
+                            <div className={styles.more}>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
+                            </div>
                         </div>
                     </div>
 

@@ -17,7 +17,14 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.Title{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+.Title img{
+    width: 25px;
+}
 .Title h1 {
     margin-bottom: 0;
     font-size: 28px;
@@ -32,23 +39,30 @@
 
 .Btn {
     display: flex;
-    align-items: center;
+    position: relative;
 }
 
 .Btn button {
+    cursor: pointer;
     color: #73497c;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 24px;
     border: 0;
     background-color: transparent;
+    padding: 0 0.75rem;
 }
 
 .more {
+    cursor: pointer;
     width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    background-repeat: no-repeat;
     color: #73497c;
 }
-
 
 
 .Stories{
@@ -138,7 +152,22 @@
     transition: all 0.2s ease-in-out;
 }
 
+@media screen and (min-width: 768px) {
 
+    .Btn button {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 0 1.5rem;
+    }
+    
+    .more {
+        width: 25px;
+        height: 25px;
+        top: 1px;
+        right: 0;
+    }
+}
 
 @media screen and (min-width: 1024px){
 
