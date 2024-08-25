@@ -6,6 +6,7 @@ import Opinion_Section from "../OPINION/Opinion_Sec"
 import Culture_Section from "../CULTURE/Culture_Sec"
 import Multimedia from "../MULTIMEDIA/Multimedia"
 import Interview_Section from "../INTERVIEWS/Interviews_Sec"
+import Footer from "../FOOTER/Footer"
 
 function LandingPage() {
 
@@ -18,6 +19,7 @@ function LandingPage() {
             <Culture_Section />
             <Multimedia />
             <Interview_Section />
+            <Footer />
         </>
     )
 }
