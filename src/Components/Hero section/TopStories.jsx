@@ -1,4 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import styles from './TopStories.module.css';
 import client from '../../../sanity_client/sanityClient';
 import Next from '../../assets/web images/Wnext.png';
@@ -103,7 +106,10 @@ function TopStories() {
                                     </div>
                                     <p className={styles.auther}>{post.author}</p>
                                 </div>
-                                <h1 className={styles.title}>{post?.title}</h1>
+                                <Link to={`/detail/${post.slug.current}`}>
+                                    <h1 className={styles.title}>{post?.title}</h1>
+                                </Link>
+
                             </div>
                         ))}
                     </div>

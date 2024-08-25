@@ -1,0 +1,315 @@
+.container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 0.5rem;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+}
+
+.Details {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.postdetsils {
+    width: 100%;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.category {
+    cursor: pointer;
+    background-color: #A382C6;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding: 0.15rem 1rem;
+    border-radius: 2px;
+    display: inline;
+}
+
+.title h1 {
+    padding: 1rem 0;
+    font-family: "Jost", sans-serif;
+    font-size: 25px;
+}
+
+.postImg {
+    width: 100%;
+    padding: 1rem 0 1.5rem 0;
+    position: relative;
+}
+
+.postImg img {
+    width: 100%;
+}
+
+.postdetsils small {
+    font-size: 14px;
+    color: #0c0c01b9;
+}
+
+.Blog_author{
+    padding: 2rem 0;
+}
+.Blog_author img{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+
+/* ////////////////  body content styles ///////////////////////// */
+.Blog_body .space {
+    margin-bottom: 2rem;
+}
+.Blog_body .Image{
+    width: 100%;
+}
+.Blog_body .Image img{
+    max-width: 100%;
+}
+.Blog_body h1{
+    font-size: 24px;
+    font-weight: 700;
+}
+.Blog_body h2{
+    font-size: 22px;
+    font-weight: 600;
+}
+.Blog_body h3{
+    font-size: 20px;
+    font-weight: 500;
+}
+.Blog_body h4{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+.Blog_body p{
+    font-size: 16px;
+}
+.Blog_body a{
+    cursor: pointer;
+    font-size: 16px;
+    color: #A382C6;
+    text-decoration: underline;
+}
+.Blog_body h1 em {
+    font-size: 18px;
+}
+.Blog_body p em {
+    font-size: 14px;
+}
+.Blog_body blockquote{
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+.Blog_body Strong{
+    font-size: 18px;
+    font-weight: 700;
+}
+.Blog_body ul{
+    list-style: square;
+    padding: 0.2rem ;
+}
+
+
+
+/* ////////////////  body content styles ///////////////////////// */
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+.recomonded {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+}
+
+.recomonded a,
+.recomonded h1 {
+    color: #000000;
+}
+
+.story:nth-child(1) {
+    border-bottom: none;
+}
+
+.recomonded .story {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    border-top: 0.1px solid #020202a7;
+    padding: 1.5rem 0 0.5rem 0;
+}
+
+.story .image {
+    width: 35%;
+}
+
+.story .image img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.story .Title {
+    width: 63%;
+}
+
+.Title .detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 0 8px 0;
+}
+
+.detail .category {
+    background-color: #A382C6;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 0.15rem 1rem;
+}
+
+.detail .author {
+    color: #000000;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.story .Title h2 {
+    font-size: 14px;
+    color: #000000;
+}
+
+
+/* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+@media screen and (min-width: 575px) {
+    .story .Title {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .title h1 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .Details {
+        margin-top: 40px;
+    }
+
+    /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+    .story .Title {
+        width: 50%;
+    }
+
+    .Title .detail {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 0 10px 0;
+    }
+
+    .detail .category {
+        font-size: 14px;
+    }
+
+    .detail .author {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .story .Title h2 {
+        font-size: 20px;
+        color: #FFFFFF;
+    }
+
+    /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+  /* ////////////////  body content styles ///////////////////////// */
+
+.Blog_body h1{
+    font-size: 34px;
+    font-weight: 800;
+}
+.Blog_body h2{
+    font-size: 30px;
+    font-weight: 700;
+}
+.Blog_body h3{
+    font-size: 28px;
+    font-weight: 600;
+}
+.Blog_body h4{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.Blog_body p{
+    font-size: 18px;
+}
+.Blog_body a{
+    cursor: pointer;
+    font-size: 16px;
+    color: #A382C6;
+    text-decoration: underline;
+}
+.Blog_body h1 em {
+    font-size: 18px;
+}
+.Blog_body p em {
+    font-size: 16px;
+}
+.Blog_body blockquote{
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+.Blog_body Strong{
+    font-size: 20px;
+    font-weight: 700;
+}
+.Blog_body ul{
+    list-style: square;
+    padding: 0.2rem ;
+}
+
+
+}
+
+@media screen and (min-width: 1024px)  {
+    .Details {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .postdetsils {
+        width: 60%;
+    }
+    .recomonded{
+        width:38%;
+    }
+    .story .Title h2 {
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+
+}
