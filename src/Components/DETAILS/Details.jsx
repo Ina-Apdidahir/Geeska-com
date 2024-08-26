@@ -1,5 +1,6 @@
 
 import HeadSection from "../Header Section/Header.jsx";
+import YourComponent from "./Fonsizing.jsx";
 
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -130,29 +131,6 @@ function Details() {
     const formattedDate = formatDate(singlePost.publishedAt);
 
 
-    const components = {
-        types: {
-            space: ({ value }) => {
-                // Render the space component
-                return (
-                    <div style={{ height: value.height }} className={styles.space} />
-                );
-            },
-            image: ({ value }) => {
-                const imageUrl = urlFor(value.asset).url(); // Generate the URL
-                return (
-                    <img
-                        src={imageUrl}
-                        alt={value.alt || 'Image'}
-                        className={styles.Image}
-                    />
-                );
-            },
-            // Add other types as needed
-        },
-    };
-
-
 
 
     return (
@@ -187,20 +165,19 @@ function Details() {
                             )}
                         </div>
 
-                        {singlePost.author && (
+                        {singlePost.author ? (
                             <div className={styles.Blog_author}>
-                                <div className={styles.authorImg}>
-                                    {singlePost.imageUrl && (
-                                        <img src={urlFor(singlePost.imageUrl)} alt={singlePost.author} />
-                                    )}
+                                <div className={styles.author}>
+                                    <div className={styles.authorImg}>
+                                        {singlePost.imageUrl && (
+                                            <img src={urlFor(singlePost.imageUrl)} alt={singlePost.author} />
+                                        )}
+                                    </div>
+                                    <p>Author: {singlePost.author}</p>
                                 </div>
-                                <p>Author: {singlePost.author}</p>
-                            </div>
-                        )}
-
-                        <div className={styles.Blog_body}>
-                            <PortableText value={singlePost.body} components={components} />
-                        </div>
+                                    <YourComponent singlePost={singlePost} />
+                                </div>
+                        ) : <p>no auther</p>}
 
                     </div>
                 ) : (

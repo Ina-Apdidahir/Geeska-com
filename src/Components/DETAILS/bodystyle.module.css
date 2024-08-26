@@ -1,0 +1,431 @@
+.fontSmall p,
+.fontSmall h1,
+.fontSmall h2,
+.fontSmall h3,
+.fontSmall ul,
+.fontSmall ol,
+.fontSmall strong {
+    /* font-size: 0.8em; /* Decrease size */
+}
+
+.fontNormal p,
+.fontNormal h1,
+.fontNormal h2,
+.fontNormal h3,
+.fontNormal ul,
+.fontNormal ol,
+.fontNormal strong {
+    /* font-size: 1em; Normal size */
+}
+
+.fontLarge p,
+.fontLarge h1,
+.fontLarge h2,
+.fontLarge h3,
+.fontLarge ul,
+.fontLarge ol,
+.fontLarge strong {
+    /* font-size: 1.2em; /* Increase size */
+}
+
+
+.userActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.action {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid #00000072;
+    padding: 0.5rem;
+}
+
+.action:nth-child(2) {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: #0202025e;
+}
+
+
+/* ___________________ Default Font ______________________ */
+.Blog_body .space {
+    margin-bottom: 2rem;
+}
+
+.Blog_body .Image {
+    width: 100%;
+}
+
+.Blog_body .Image img {
+    max-width: 100%;
+}
+
+.Blog_body .defaultFont h1 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.Blog_body .defaultFont h2 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Blog_body .defaultFont h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.Blog_body .defaultFont h4 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.Blog_body .defaultFont p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 120%;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.Blog_body .defaultFont a {
+    cursor: pointer;
+    font-size: 14px;
+    color: #27202e;
+    text-decoration: underline;
+}
+
+.Blog_body .defaultFont h1 em {
+    font-size: 15px;
+}
+
+.Blog_body .defaultFont p em {
+    font-size: 15px;
+}
+
+.Blog_body .defaultFont blockquote {
+    font-style: italic;
+    margin-left: 0.5rem;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.Blog_body .defaultFont Strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Blog_body .defaultFont ul {
+    list-style: square;
+    padding: 0.2rem;
+}
+
+/* ___________________ Small Font ______________________ */
+
+.Blog_body .fontSmall h1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Blog_body .fontSmall h2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.Blog_body .fontSmall h3 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.Blog_body .fontSmall h4 {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.Blog_body .fontSmall p {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.Blog_body .fontSmall a {
+    cursor: pointer;
+    font-size: 12px;
+    color: #27202e;
+    text-decoration: underline;
+}
+
+.Blog_body .fontSmall h1 em {
+    font-size: 12px;
+}
+
+.Blog_body .fontSmall p em {
+    font-size: 12px;
+}
+
+.Blog_body .fontSmall blockquote {
+    font-style: italic;
+    margin-left: 0.5rem;
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.Blog_body .fontSmall Strong {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.Blog_body .fontSmall ul {
+    list-style: square;
+    padding: 0.2rem;
+}
+
+/* ___________________ Large Font ______________________ */
+.Blog_body .fontLarge h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.Blog_body .fontLarge h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.Blog_body .fontLarge h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.Blog_body .fontLarge h4 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.Blog_body .fontLarge p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.Blog_body .fontLarge a {
+    cursor: pointer;
+    font-size: 16px;
+    color: #27202e;
+    text-decoration: underline;
+}
+
+.Blog_body .fontLarge h1 em {
+    font-size: 18px;
+}
+
+.Blog_body .fontLarge p em {
+    font-size: 16px;
+}
+
+.Blog_body .fontLarge blockquote {
+    font-style: italic;
+    margin-left: 0.5rem;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.Blog_body .fontLarge Strong {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.Blog_body .fontLarge ul {
+    list-style: square;
+    padding: 0.2rem;
+}
+
+
+
+@media screen and (min-width: 1024px) {
+
+
+    /* ___________________ Default Font ______________________ */
+
+    .Blog_body .defaultFont h1 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .Blog_body .defaultFont h2 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .Blog_body .defaultFont h3 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .Blog_body .defaultFont h4 {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .Blog_body .defaultFont p {
+        font-size: 18px;
+    }
+
+    .Blog_body .defaultFont a {
+        cursor: pointer;
+        font-size: 16px;
+        color: #27202e;
+        text-decoration: underline;
+    }
+
+    .Blog_body .defaultFont h1 em {
+        font-size: 17px;
+    }
+
+    .Blog_body .defaultFont p em {
+        font-size: 17px;
+    }
+
+    .Blog_body .defaultFont blockquote {
+        font-style: italic;
+        margin-left: 0.5rem;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .Blog_body .defaultFont Strong {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .Blog_body .defaultFont ul {
+        list-style: square;
+        padding: 0.2rem;
+    }
+
+    /* ___________________ Small Font ______________________ */
+
+    .Blog_body .fontSmall h1 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .Blog_body .fontSmall h2 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .Blog_body .fontSmall h3 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .Blog_body .fontSmall h4 {
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+    .Blog_body .fontSmall p {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 17px;
+        letter-spacing: 0em;
+        text-align: justify;
+    }
+
+    .Blog_body .fontSmall a {
+        cursor: pointer;
+        font-size: 14px;
+        color: #27202e;
+        text-decoration: underline;
+    }
+
+    .Blog_body .fontSmall h1 em {
+        font-size: 14px;
+    }
+
+    .Blog_body .fontSmall p em {
+        font-size: 14px;
+    }
+
+    .Blog_body .fontSmall blockquote {
+        font-size: 13px;
+    }
+
+    .Blog_body .fontSmall Strong {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .Blog_body .fontSmall ul {
+        list-style: square;
+        padding: 0.2rem;
+    }
+
+    /* ___________________ Large Font ______________________ */
+    .Blog_body .fontLarge h1 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    .Blog_body .fontLarge h2 {
+        font-size: 23px;
+        font-weight: 600;
+    }
+
+    .Blog_body .fontLarge h3 {
+        font-size: 21px;
+        font-weight: 500;
+    }
+
+    .Blog_body .fontLarge h4 {
+        font-size: 19px;
+        font-weight: 400;
+    }
+
+    .Blog_body .fontLarge p {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 21px;
+    }
+
+    .Blog_body .fontLarge a {
+        cursor: pointer;
+        font-size: 18px;
+        color: #27202e;
+        text-decoration: underline;
+    }
+
+    .Blog_body .fontLarge h1 em {
+        font-size: 19px;
+    }
+
+    .Blog_body .fontLarge p em {
+        font-size: 17px;
+    }
+
+    .Blog_body .fontLarge blockquote {
+        font-style: italic;
+        margin-left: 0.5rem;
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    .Blog_body .fontLarge Strong {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .Blog_body .fontLarge ul {
+        list-style: square;
+        padding: 0.2rem;
+    }
+
+
+}
