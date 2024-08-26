@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import client from '../../../sanity_client/sanityClient';
 import { urlFor } from '../../../sanity_client/sanityClient';
+import { Link } from 'react-router-dom';
 
 import styles from './Opinion_Sec.module.css'
 import quotes from '../../assets/web images/quotes.png'
@@ -73,7 +74,7 @@ function Opinion_Section() {
                         <div className={styles.Btn}>
                             <button>more  </button>
                             <div className={styles.more}>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg>
                             </div>
                         </div>
                     </div>
@@ -84,7 +85,9 @@ function Opinion_Section() {
                             <div className={styles.story_1}>
                                 {LastOne.mainImage && LastOne.mainImage.asset && (
                                     <div className={styles.image}>
-                                        <img src={LastOne.mainImage.asset.url} alt="" />
+                                        <Link to={`/detail/${LastOne.slug.current}`}>
+                                            <img src={LastOne.mainImage.asset.url} alt="" />
+                                        </Link>
                                     </div>
                                 )}
                                 <div className={styles.storycontent}>
@@ -105,7 +108,9 @@ function Opinion_Section() {
                                         </div>
 
                                         <div className={styles.Texts}>
-                                            <h1>{LastOne?.title}</h1>
+                                            <Link to={`/detail/${LastOne.slug.current}`}>
+                                                <h1>{LastOne?.title}</h1>
+                                            </Link>
                                             <p>{LastOne?.subtitle}</p>
                                         </div>
                                     </div>
@@ -134,7 +139,9 @@ function Opinion_Section() {
                                                 </div>
 
                                                 <div className={styles.side_Texts}>
-                                                    <h1>{story?.title}</h1>
+                                                    <Link to={`/detail/${story.slug.current}`}>
+                                                        <h1>{story?.title}</h1>
+                                                    </Link>
                                                     <p>{story?.subtitle}</p>
                                                 </div>
                                             </div>

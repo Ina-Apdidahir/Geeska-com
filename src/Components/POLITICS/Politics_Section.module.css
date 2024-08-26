@@ -37,6 +37,7 @@
     color: #405981;
 }
 
+
 .Btn {
     display: flex;
     position: relative;
@@ -148,7 +149,10 @@
     flex-wrap: wrap;
     gap: 0.75rem;
 }
-
+.sideStories a,
+.story a{
+    color: #231e18;
+}
 .sideStory {
     width: 47%;
 }

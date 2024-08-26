@@ -97,7 +97,9 @@ function TopStories() {
                             <div key={index} className={`${styles.story} ${index === currentIndex ? styles.active : ''}`}>
                                 {post.mainImage && post.mainImage.asset && (
                                     <div className={styles.image}>
-                                        <img src={post.mainImage.asset.url} alt={post.mainImage.alt || 'Story Image'} />
+                                        <Link to={`/detail/${post.slug.current}`}>
+                                            <img src={post.mainImage.asset.url} alt={post.mainImage.alt || 'Story Image'} />
+                                        </Link>
                                     </div>
                                 )}
                                 <div className={styles.refrence}>

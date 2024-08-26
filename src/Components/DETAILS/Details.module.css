@@ -21,7 +21,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     overflow: hidden;
     margin-top: 20px;
 }
@@ -100,67 +99,6 @@
     color: #0202025e;
 }
 
-/* ////////////////  body content styles ///////////////////////// */
-/* .Blog_body .space {
-    margin-bottom: 2rem;
-}
-.Blog_body .Image{
-    width: 100%;
-}
-.Blog_body .Image img{
-    max-width: 100%;
-}
-.Blog_body h1{
-    font-size: 24px;
-    font-weight: 700;
-}
-.Blog_body h2{
-    font-size: 22px;
-    font-weight: 600;
-}
-.Blog_body h3{
-    font-size: 20px;
-    font-weight: 500;
-}
-.Blog_body h4{
-    font-size: 18px;
-    font-weight: 400;
-}
-
-
-.Blog_body p{
-    font-size: 16px;
-}
-.Blog_body a{
-    cursor: pointer;
-    font-size: 16px;
-    color: #A382C6;
-    text-decoration: underline;
-}
-.Blog_body h1 em {
-    font-size: 18px;
-}
-.Blog_body p em {
-    font-size: 14px;
-}
-.Blog_body blockquote{
-    font-family: "Alegreya Sans SC", sans-serif;
-    font-size: 12px;
-    font-weight: 400;
-}
-.Blog_body Strong{
-    font-size: 18px;
-    font-weight: 700;
-}
-.Blog_body ul{
-    list-style: square;
-    padding: 0.2rem ;
-} */
-
-
-
-/* ////////////////  body content styles ///////////////////////// */
-
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
 
 .recomonded {
@@ -226,12 +164,29 @@
     color: #000000;
 }
 
+.video iframe{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 1rem;
+}
 
 /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
+
+@media screen and (min-width: 475px) {
+    .video iframe{
+        width: 100%;
+        height: 300px;
+    }
+}
+
 
 @media screen and (min-width: 575px) {
     .story .Title {
         width: 50%;
+    }
+    .video iframe{
+        width: 100%;
+        height: 300px;
     }
 }
 
@@ -242,6 +197,12 @@
     }
     .Details {
         margin-top: 40px;
+    }
+
+    .video iframe{
+        width: 70%;
+        height: 300px;
+        display: inline;
     }
 
     /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
@@ -271,60 +232,17 @@
         color: #FFFFFF;
     }
 
-    /* \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ */
-
-  /* ////////////////  body content styles ///////////////////////// */
-
-.Blog_body h1{
-    font-size: 34px;
-    font-weight: 800;
-}
-.Blog_body h2{
-    font-size: 30px;
-    font-weight: 700;
-}
-.Blog_body h3{
-    font-size: 28px;
-    font-weight: 600;
-}
-.Blog_body h4{
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.Blog_body p{
-    font-size: 18px;
-}
-.Blog_body a{
-    cursor: pointer;
-    font-size: 16px;
-    color: #A382C6;
-    text-decoration: underline;
-}
-.Blog_body h1 em {
-    font-size: 18px;
-}
-.Blog_body p em {
-    font-size: 16px;
-}
-.Blog_body blockquote{
-    font-family: "Alegreya Sans SC", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-}
-.Blog_body Strong{
-    font-size: 20px;
-    font-weight: 700;
-}
-.Blog_body ul{
-    list-style: square;
-    padding: 0.2rem ;
-}
 
 
 }
 
 @media screen and (min-width: 1024px)  {
+    .video iframe{
+        width: 100%;
+        height: 350px;
+        display: inline;
+    }
+
     .Details {
         flex-direction: row;
         align-items: flex-start;

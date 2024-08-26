@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import client from '../../../sanity_client/sanityClient';
-import { urlFor } from '../../../sanity_client/sanityClient';
+import { Link } from 'react-router-dom';
 
 import styles from './Culture_Sec.module.css'
 import Floor from '../../assets/web images/floor.png'
@@ -83,7 +83,9 @@ function Culture_Section() {
                             <div key={index} className={styles.Story}>
                                 {post.mainImage && post.mainImage.asset && (
                                     <div className={styles.image}>
+                                        <Link to={`/detail/${post.slug.current}`}>
                                         <img src={post.mainImage.asset.url} alt={post.mainImage.alt || 'Story Image'} />
+                                        </Link>
                                     </div>
                                 )}
 
@@ -94,7 +96,9 @@ function Culture_Section() {
                                     <p className={styles.auther}>{post.author}</p>
                                 </div>
                                 <div className={styles.texts}>
+                                <Link to={`/detail/${post.slug.current}`}>
                                     <h1 className={styles.title}>{post?.title}</h1>
+                                    </Link>
                                     <p className={styles.subtitle}>{post?.subtitle}</p>
                                 </div>
                             </div>

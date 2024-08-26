@@ -17,14 +17,17 @@
     align-items: center;
     justify-content: space-between;
 }
-.Title{
+
+.Title {
     display: flex;
     align-items: center;
     gap: 0.25rem;
 }
-.Title img{
+
+.Title img {
     width: 25px;
 }
+
 .Title h1 {
     margin-bottom: 0;
     font-size: 28px;
@@ -83,7 +86,7 @@
     overflow: hidden;
 }
 
-.story_1 .video iframe{
+.story_1 .video iframe {
     width: 100%;
     height: 200px;
 }
@@ -113,7 +116,8 @@
     width: 100%;
     overflow: hidden;
 }
-.Story .video iframe{
+
+.Story .video iframe {
     width: 100%;
     height: 180px;
 }
@@ -123,9 +127,10 @@
     width: 100%;
 }
 
-.Story .texts{
+.Story .texts {
     width: 100%;
 }
+
 .Story .title {
     color: #FFFFFF;
     font-size: 16px;
@@ -172,24 +177,31 @@
     padding: 1rem;
 }
 
+.Multimedia a {
+    color: #FFFFFF;
+}
 
-.story_1:hover .video  video,
-.Story:hover .video  video{
+.video a {
+    width: 100%;
+}
+
+.story_1:hover .video video,
+.Story:hover .video video {
     cursor: pointer;
     transform: scale(1.03);
     transition: all 0.4s ease-in-out;
-   }
+}
 
 .story_1:hover .title,
-.Story:hover .title{
+.Story:hover .title {
     cursor: pointer;
     text-decoration: underline;
     transition: all 0.2s ease-in-out;
 }
 
-@media screen and (min-width: 475px){
+@media screen and (min-width: 475px) {
 
-    .story_1 .video iframe{
+    .story_1 .video iframe {
         width: 100%;
         height: 250px;
     }
@@ -197,22 +209,25 @@
     .Story {
         width: 48%;
     }
-    .Story .video iframe{
+
+    .Story .video iframe {
         width: 100%;
         height: 130px;
     }
 }
-@media screen and (min-width: 575px){
 
-    .story_1 .video iframe{
+@media screen and (min-width: 575px) {
+
+    .story_1 .video iframe {
         width: 100%;
         height: 300px;
     }
-    
+
     .Story {
         width: 48%;
     }
-    .Story .video iframe{
+
+    .Story .video iframe {
         width: 100%;
         height: 100%;
     }
@@ -226,7 +241,7 @@
         line-height: 24px;
         padding: 0 1.5rem;
     }
-    
+
     .more {
         width: 25px;
         height: 25px;
@@ -234,13 +249,12 @@
         right: 0;
     }
 
-    .story_1 .video iframe{
+    .story_1 .video iframe {
         width: 100%;
         height: 400px;
     }
-    
 
-    .Story .video iframe{
+    .Story .video iframe {
         width: 100%;
         height: 200px;
     }
@@ -276,7 +290,7 @@
         font-size: 16px;
     }
 
-    .story_1 .video iframe{
+    .story_1 .video iframe {
         width: 100%;
         height: 300px;
     }
@@ -284,14 +298,16 @@
     .Story {
         width: 23%;
     }
-    .Story .title{
+
+    .Story .title {
         font-size: 20px;
     }
+
     .Stories {
         gap: 1.5rem 1.2rem;
     }
 
-    .Story .video iframe{
+    .Story .video iframe {
         width: 100%;
         height: 140px;
     }

@@ -10,7 +10,9 @@
     overflow: hidden;
     background-color: #FFFFFF;
 }
-
+.Stories a{
+    color: #100e0b;
+}
 .section_head {
     width: 98%;
     display: flex;

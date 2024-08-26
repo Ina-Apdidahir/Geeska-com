@@ -1,34 +1,8 @@
-.fontSmall p,
-.fontSmall h1,
-.fontSmall h2,
-.fontSmall h3,
-.fontSmall ul,
-.fontSmall ol,
-.fontSmall strong {
-    /* font-size: 0.8em; /* Decrease size */
+
+
+.subtitle{
+    font-size: 16px;
 }
-
-.fontNormal p,
-.fontNormal h1,
-.fontNormal h2,
-.fontNormal h3,
-.fontNormal ul,
-.fontNormal ol,
-.fontNormal strong {
-    /* font-size: 1em; Normal size */
-}
-
-.fontLarge p,
-.fontLarge h1,
-.fontLarge h2,
-.fontLarge h3,
-.fontLarge ul,
-.fontLarge ol,
-.fontLarge strong {
-    /* font-size: 1.2em; /* Increase size */
-}
-
-
 .userActions {
     display: flex;
     align-items: center;
@@ -48,6 +22,7 @@
     height: 2.25rem;
     color: #0202025e;
 }
+
 
 
 /* ___________________ Default Font ______________________ */
@@ -86,9 +61,9 @@
 .Blog_body .defaultFont p {
     font-size: 16px;
     font-weight: 300;
-    line-height: 120%;
+    line-height: 160%;
     letter-spacing: 0em;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .Blog_body .defaultFont a {
@@ -113,9 +88,9 @@
     font-weight: 400;
 }
 
-.Blog_body .defaultFont Strong {
+.Blog_body .defaultFont p Strong {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .Blog_body .defaultFont ul {
@@ -175,9 +150,9 @@
     font-weight: 300;
 }
 
-.Blog_body .fontSmall Strong {
+.Blog_body .fontSmall p Strong {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .Blog_body .fontSmall ul {
@@ -208,8 +183,8 @@
 
 .Blog_body .fontLarge p {
     font-size: 16px;
-    font-weight: 400;
-    line-height: 22px;
+    font-weight: 300;
+    line-height: 23px;
     letter-spacing: 0em;
     text-align: justify;
 }
@@ -236,9 +211,10 @@
     font-weight: 400;
 }
 
-.Blog_body .fontLarge Strong {
-    font-size: 20px;
-    font-weight: 600;
+.Blog_body .fontLarge p Strong {
+    font-size: 16px;
+    letter-spacing: 0em;
+    font-weight: 500;
 }
 
 .Blog_body .fontLarge ul {

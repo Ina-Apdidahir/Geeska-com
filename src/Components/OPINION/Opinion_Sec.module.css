@@ -9,7 +9,9 @@
     overflow: hidden;
     background-color: #e0e7e2;
 }
-
+.Opinion_stories a{
+    color: #20603C;
+}
 .section_head {
     width: 98%;
     display: flex;

@@ -1,6 +1,7 @@
 
 import HeadSection from "../Header Section/Header.jsx";
-import YourComponent from "./Fonsizing.jsx";
+import YourComponent from "./Body Structure/Fonsizing.jsx";
+import Related from "./Related/Related.jsx";
 
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
@@ -23,6 +24,7 @@ function Details() {
         const query = `*[ _type == "post" && slug.current == "${slug}"] {
         title,
         slug,
+        subtitle,
         body,
         mainImage {
         asset -> {
@@ -49,55 +51,6 @@ function Details() {
                 setIsLoading(false);
             });
     }, [slug]);
-    const [error, setError] = useState(null);
-    const [recommendedPosts, setRecommendedPosts] = useState([]);
-    const [latestPosts, setLatestPosts] = useState([]);
-
-
-    useEffect(() => {
-        const fetchRecommendedPosts = async () => {
-            const query =
-                `
-        *[_type == "post" ] | order(_createdAt desc){
-        title,
-        slug,
-        mainImage {
-        asset -> {
-        _id,
-        url
-        },
-        alt
-        },
-        categories[]->{
-          title,
-          slug
-        },
-        subcategories[]->{
-          title,
-          slug
-        },
-        "author": author->name
-        } `
-            try {
-                const results = await client.fetch(query);
-                setLatestPosts(results)
-                const politicsPost = results.filter(post => post.categories?.some(sub => sub.title == singlePost.categories?.map(category => category.title)));
-                setRecommendedPosts(politicsPost);
-            } catch (err) {
-                setError(err);
-                setIsLoading(false);
-            }
-        };
-
-        fetchRecommendedPosts();
-
-    }, [singlePost])
-
-
-    const FourrecommendedPosts = recommendedPosts.reverse().slice(0, 4);
-    const FourletestPosts = latestPosts.reverse().slice(0, 4);
-
-
 
     function formatDate(timestamp) {
         const publishedDate = new Date(timestamp);
@@ -128,9 +81,76 @@ function Details() {
         }
     }
 
-    const formattedDate = formatDate(singlePost.publishedAt);
+    const formattedDate = formatDate(singlePost?.publishedAt);
+
+    if (isLoading) {
+        <p className={styles.loading}>Loading...</p>
+    }
 
 
+
+    const [video, setVideo] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchPosts = async () => {
+            const query = `*[ _type == "multimeda"  && slug.current == "${slug}"] | order(_createdAt desc) {
+                title,
+                body,
+                slug,
+                youtubeUrl
+              }`;
+
+            try {
+                const data = await client.fetch(query);
+                setVideo(data[0]);
+                setIsLoading(false);
+            } catch (err) {
+                setError(err);
+                setIsLoading(false);
+            }
+        };
+
+        fetchPosts();
+    }, [slug]);
+
+    // const Last4Posts = posts.slice(1, 5);
+    // const LastOne = posts[0];
+
+    // const components = {
+    //     types: {
+    //         space: ({ value }) => {
+    //             return (
+    //                 <div style={{ height: value.height }} className={styles.space} />
+    //             );
+    //         },
+    //         image: ({ value }) => {
+    //             const imageUrl = urlFor(value.asset).url();
+    //             return (
+    //                 <img
+    //                     src={imageUrl}
+    //                     alt={value.alt || 'Image'}
+    //                     className={styles.Image}
+    //                 />
+    //             );
+    //         },
+    //     },
+    // };
+
+    const getEmbedUrl = (youtubeUrl) => {
+        if (!youtubeUrl) {
+            return '';
+        }
+
+        const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/(?:embed\/|v\/|v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+
+        if (videoIdMatch) {
+            return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+        } else {
+            console.error('Invalid YouTube URL:', youtubeUrl);
+            return '';
+        }
+    };
 
 
     return (
@@ -138,7 +158,7 @@ function Details() {
         <div className={styles.container}>
             <HeadSection />
             <div className={styles.Details}>
-                {isLoading ? (<p className={styles.loading}>Loading...</p>) : singlePost ? (
+                {singlePost ? (
                     <div className={styles.postdetsils}>
 
                         {singlePost.subcategories ? (
@@ -168,89 +188,43 @@ function Details() {
                         {singlePost.author ? (
                             <div className={styles.Blog_author}>
                                 <div className={styles.author}>
-                                    <div className={styles.authorImg}>
-                                        {singlePost.imageUrl && (
-                                            <img src={urlFor(singlePost.imageUrl)} alt={singlePost.author} />
-                                        )}
-                                    </div>
-                                    <p>Author: {singlePost.author}</p>
+                                        <div className={styles.authorImg}>
+                                            {singlePost.imageUrl && (
+                                                <img src={urlFor(singlePost.imageUrl)} alt={singlePost.author} />
+                                            )}
+                                        </div>
+                                        <p>Author: {singlePost.author}</p>
                                 </div>
-                                    <YourComponent singlePost={singlePost} />
-                                </div>
-                        ) : <p>no auther</p>}
+                                <YourComponent singlePost={singlePost} />
+                            </div>
+                        ) : ''}
 
                     </div>
                 ) : (
-                    <p>Post not found</p>
+                    <div className={styles.postdetsils}>
+
+                        <div className={styles.title}>
+                            <h1>{video?.title}</h1>
+                        </div>
+
+                        <div className={styles.video}>
+                            <iframe
+                                // width="100%"
+                                // height="100%"
+                                src={getEmbedUrl(video?.youtubeUrl)}
+                                title={video.title}
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+
+                        <YourComponent singlePost={video} />
+
+                    </div>
                 )}
 
-                {FourrecommendedPosts && FourrecommendedPosts.length > 1 ? (
-                    <div className={styles.recomonded}>
-                        <div className={styles.title}>
-                            <h1>Recomonmded</h1>
-                        </div>
-                        {FourrecommendedPosts.map((post) => (
-                            <div className={styles.story} key={post.slug.current}>
-                                <div className={styles.image}>
-                                    <img src={post.mainImage.asset.url} alt="" />
-                                </div>
-                                <div className={styles.Title}>
-                                    <div className={styles.detail}>
-
-                                        {post.subcategories ? (
-                                            <Link to={`/category/${post.subcategories?.map(category => category.slug.current)}`}>
-                                                <p className={styles.category}>{post.subcategories.map(category => category.title).join(',')}</p>
-                                            </Link>
-                                        ) : (
-                                            <Link to={`/category/${post.categories?.map(category => category.slug.current)}`}>
-                                                <p className={styles.category}>{post.categories.map(category => category.title).join(',')}</p>
-                                            </Link>
-                                        )}
-
-                                        <small className={styles.author}>{post.author}</small>
-                                    </div>
-                                    <h2>
-                                        <Link to={`/detail/${post.slug?.current}`}>{post.title}</Link>
-                                    </h2>
-                                </div>
-                            </div>
-                        ))
-                        }
-                    </div >
-                ) : (
-                    <div className={styles.recomonded}>
-                        <div className={styles.title}>
-                            <h1>Recomonmded</h1>
-                        </div>
-                        {FourletestPosts.map((post) => (
-                            <div className={styles.story} key={post.slug.current}>
-                                <div className={styles.image}>
-                                    <img src={post.mainImage.asset.url} alt="" />
-                                </div>
-                                <div className={styles.Title}>
-                                    <div className={styles.detail}>
-
-                                        {post.subcategories ? (
-                                            <Link to={`/category/${post.subcategories?.map(category => category.slug.current)}`}>
-                                                <p className={styles.category}>{post.subcategories.map(category => category.title).join(',')}</p>
-                                            </Link>
-                                        ) : (
-                                            <Link to={`/category/${post.categories?.map(category => category.slug.current)}`}>
-                                                <p className={styles.category}>{post.categories.map(category => category.title).join(',')}</p>
-                                            </Link>
-                                        )}
-
-                                        <small className={styles.author}>{post.author}</small>
-                                    </div>
-                                    <h2>
-                                        <Link to={`/detail/${post.slug?.current}`}>{post.title}</Link>
-                                    </h2>
-                                </div>
-                            </div>
-                        ))
-                        }
-                    </div >
-                )}
+                <Related singlePost={singlePost} />
             </div>
         </div>
 

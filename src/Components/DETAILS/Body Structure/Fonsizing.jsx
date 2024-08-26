@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { urlFor } from '../../../sanity_client/sanityClient';
+import { urlFor } from '../../../../sanity_client/sanityClient';
 import { PortableText } from '@portabletext/react'; // Ensure you have PortableText imported
 import styles from './bodystyle.module.css'; // Ensure your CSS module is properly imported
 
 
-const YourComponent = ({ singlePost }) => {
+const YourComponent = ({ singlePost, video }) => {
     // State to control the current font size class
     const [fontSizeClass, setFontSizeClass] = useState(styles.fontNormal);
 
@@ -77,11 +77,21 @@ const YourComponent = ({ singlePost }) => {
                 </div>
             </div>
 
-
+            {singlePost.subtitle && (
+                <h2 className={styles.subtitle}>{singlePost.subtitle}</h2>
+            )}
             <div className={styles.Blog_body}>
-                <div className={` ${styles.defaultFont} ${fontSizeClass}`}>
-                    <PortableText value={singlePost?.body} components={components} />
-                </div>
+                {singlePost ? (
+                    <div className={` ${styles.defaultFont} ${fontSizeClass}`}>
+                        <PortableText value={singlePost?.body} components={components} />
+                    </div>
+                ) : (
+                    <div className={` ${styles.defaultFont} ${fontSizeClass}`}>
+                        <PortableText value={video?.body} components={components} />
+                    </div>
+                )}
+
+
             </div>
         </>
     );

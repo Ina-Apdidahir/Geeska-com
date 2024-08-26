@@ -63,6 +63,9 @@
     background-repeat: no-repeat;
 }
 
+.Interview_stories a {
+    color: #231e18;
+}
 
 .story {
     width: 100%;
@@ -246,7 +249,7 @@
         font-size: 12px;
         font-weight: 300;
     }
-    .Politic_stories {
+    .Interview_stories {
         width: 98%;
         display: flex;
     }

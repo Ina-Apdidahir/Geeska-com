@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import client from '../../../sanity_client/sanityClient';
 import { PortableText } from '@portabletext/react';
+import { Link } from 'react-router-dom';
 
 import styles from './Multimedia.module.css';
 import Floor from '../../assets/web images/floor.png';
@@ -16,6 +17,7 @@ const Multimedia = () => {
             const query = `*[ _type == "multimeda"] | order(_createdAt desc) {
                 title,
                 body,
+                slug,
                 youtubeUrl
               }`;
 
@@ -61,7 +63,7 @@ const Multimedia = () => {
         }
 
         const videoIdMatch = youtubeUrl.match(/(?:youtube\.com\/(?:embed\/|v\/|v=)|youtu\.be\/)([^"&?\/\s]{11})/);
-        
+
         if (videoIdMatch) {
             return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
         } else {
@@ -94,19 +96,23 @@ const Multimedia = () => {
                             <div className={styles.story_1}>
                                 {LastOne.youtubeUrl && (
                                     <div className={styles.video}>
-                                        <iframe
-                                           width="100%"
+                                        <Link to={`/detail/${LastOne.slug.current}`}>
+                                            <iframe
+                                                width="100%"
                                                 height="100%"
-                                            src={getEmbedUrl(LastOne.youtubeUrl)}
-                                            title={LastOne.title}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        ></iframe>
+                                                src={getEmbedUrl(LastOne.youtubeUrl)}
+                                                title={LastOne.title}
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            ></iframe>
+                                        </Link>
                                     </div>
                                 )}
                                 <div className={styles.texts}>
-                                    <h1 className={styles.title}>{LastOne.title}</h1>
+                                    <Link to={`/detail/${LastOne.slug.current}`}>
+                                        <h1 className={styles.title}>{LastOne.title}</h1>
+                                    </Link>
                                     <div className={styles.subtitle}>
                                         <PortableText value={LastOne?.body} components={components} />
                                     </div>
@@ -119,19 +125,23 @@ const Multimedia = () => {
                                 <div key={index} className={styles.Story}>
                                     {video.youtubeUrl && (
                                         <div className={styles.video}>
-                                            <iframe
-                                                // width="100%"
-                                                // height="100%"
-                                                src={getEmbedUrl(video.youtubeUrl)}
-                                                title={video.title}
-                                                frameBorder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowFullScreen
-                                            ></iframe>
+                                            <Link to={`/detail/${LastOne.slug.current}`}>
+                                                <iframe
+                                                    // width="100%"
+                                                    // height="100%"
+                                                    src={getEmbedUrl(video.youtubeUrl)}
+                                                    title={video.title}
+                                                    frameBorder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                ></iframe>
+                                            </Link>
                                         </div>
                                     )}
                                     <div className={styles.texts}>
-                                        <h1 className={styles.title}>{video.title}</h1>
+                                        <Link to={`/detail/${video.slug.current}`}>
+                                            <h1 className={styles.title}>{video.title}</h1>
+                                        </Link>
                                     </div>
                                 </div>
                             ))}
