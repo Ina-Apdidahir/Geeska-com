@@ -38,6 +38,7 @@ function Details() {
         },
           publishedAt,
         "author": author->name,
+         "authorSlug": author->slug.current,
         "imageUrl": author->image
       }`;
 
@@ -188,12 +189,14 @@ function Details() {
                         {singlePost.author ? (
                             <div className={styles.Blog_author}>
                                 <div className={styles.author}>
+                                    <Link to={`/author/${singlePost?.authorSlug}`}>
                                         <div className={styles.authorImg}>
                                             {singlePost.imageUrl && (
                                                 <img src={urlFor(singlePost.imageUrl)} alt={singlePost.author} />
                                             )}
                                         </div>
-                                        <p>Author: {singlePost.author}</p>
+                                        <p>{singlePost.author}</p>
+                                    </Link>
                                 </div>
                                 <YourComponent singlePost={singlePost} />
                             </div>
@@ -212,7 +215,7 @@ function Details() {
                                 // width="100%"
                                 // height="100%"
                                 src={getEmbedUrl(video?.youtubeUrl)}
-                                title={video.title}
+                                title={video?.title}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen

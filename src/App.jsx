@@ -17,7 +17,7 @@ function App() {
         <Routes>
         <Route path="/" element={<LandingPage  posts={postsData}/>} />
         <Route path='/detail/:slug'  element={<Details />}></Route>
-        <Route path='/author/:slug'  element={<Details />}></Route>
+        <Route path='/author/:slug'  element={<Author />}></Route>
         </Routes>
       </BrowserRouter>  
     </>

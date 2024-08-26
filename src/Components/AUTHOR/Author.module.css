@@ -1,0 +1,146 @@
+
+.container {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 2rem 0.5rem;
+    overflow: hidden;
+    background-color: #FFFFFF;
+}
+
+.authorDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Author image styling */
+.authorImg img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Author name styling */
+.authorDetails p {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Author bio styling */
+.authorDetails .bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Section for the author's articles */
+.authorPosts h2 {
+    color: #231e18;
+    font-size: 32px;
+    font-weight: 200;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-top: 64px;
+    border-bottom: 1px rgb(35 30 24 / 30%) solid;
+    padding-bottom: 16px;
+    margin-bottom: 0;
+}
+
+
+/* Styling each post */
+.post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 15px 8px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+.post a{
+    display: flex;
+    width: 100%;
+}
+.post:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Post image styling */
+.postImg {
+    width: 40%;
+    margin-right: 10px;
+}
+.postImg img {
+    object-fit: cover;
+    width: 100%;
+}
+/* Post title styling */
+
+.Refrence {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom:  0.5rem;
+}
+.postTitle{
+    width: 58%;
+}
+.postTitle .title {
+     font-size: 16px;
+    font-weight: 400;
+    line-height: 106%;
+    text-decoration: none;
+    color: #231e18;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.category{
+    font-size: 10px;
+    padding: 3px;
+    font-weight: 300;
+    line-height: 12px;
+    text-align: center;
+    background-color: #231e18;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.postTitle small {
+    font-size: 10px;
+    color: #888;
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .postTitle .title {
+        font-size: 20px;
+        margin-bottom: 0;
+        line-height: 106%;
+    }
+
+    .category{
+        font-size: 14px;
+        padding: 6px;
+        font-weight: 300;
+        line-height: 14px;
+    }
+    
+    .postTitle small {
+        font-size: 14px;
+        color: #888;
+    }
+}
