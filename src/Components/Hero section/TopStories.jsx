@@ -113,7 +113,6 @@ function TopStories() {
                 <div className={styles.TopStories}>
                     <div className={`${styles.movebtn} ${styles.previous}`} onClick={previousSlide}>
                         <img src={right_chevron} alt="Previous" />
-                        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8284 12.0005L14.6569 14.8289L13.2426 16.2431L9 12.0005L13.2426 7.75781L14.6569 9.17203L11.8284 12.0005Z"></path></svg> */}
                     </div>
                     <div className={styles.storiesContainer}>
                         {Last5Posts.map((post, index) => (
@@ -132,7 +131,7 @@ function TopStories() {
                                             to={`/category/${category.slug.current}`}
                                             className={`${styles.category} ${getCategoryClass(category.title)}`}
                                         >
-                                            {category.title}
+                                           <span> {category.title}</span>
                                         </Link>
                                     ))}
                                     <p className={styles.auther}>{post.author}</p>
@@ -146,7 +145,6 @@ function TopStories() {
                     </div>
                     <div className={`${styles.movebtn} ${styles.Next}`} onClick={nextSlide}>
                         <img src={left_chevron} alt="Next" />
-                        {/* <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.1717 12.0005L9.34326 9.17203L10.7575 7.75781L15.0001 12.0005L10.7575 16.2431L9.34326 14.8289L12.1717 12.0005Z"></path></svg> */}
                     </div>
 
                     {/* Pagination */}
