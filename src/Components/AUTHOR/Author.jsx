@@ -5,6 +5,9 @@ import { urlFor } from '../../../sanity_client/sanityClient';
 import styles from './Author.module.css';
 import { PortableText } from '@portabletext/react';
 
+
+import Footer from '../FOOTER/Footer.jsx'
+import HeadSection from "../Header Section/Header.jsx";
 import Pagination from './Pagination';
 
 function Author() {
@@ -88,76 +91,104 @@ function Author() {
     };
 
 
+    // Helper function to get category CSS class based on category title
+    const getCategoryClass = (categoryTitle) => {
+        switch (categoryTitle.toLowerCase()) {
+            case 'culture':
+                return styles.Culture;
+            case 'politics':
+                return styles.Politics;
+            case 'interviews':
+                return styles.Interviews;
+            case 'multimedia':
+                return styles.Multimedia;
+            case 'opinion':
+                return styles.Opinion;
+            default:
+                return styles.defaultCategory;
+        }
+    };
+
+
     if (isLoading) {
         return <p>Loading...</p>;
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.author}>
-                <div className={styles.authorDetails}>
-                    <div className={styles.authorImg}>
-                        {author.image && (
-                            <img src={urlFor(author.image)} alt={author.name} />
-                        )}
-                    </div>
-                    <div className={styles.texts}>
-                        <p>{author.name}</p>
-                        {author.bio && (
-                            <div className={styles.bio}>
-                                <PortableText value={author.bio} />
-                            </div>
-                        )}
-                    </div>
-                </div>
+        <>
+            <HeadSection />
 
-                <div className={styles.authorPosts}>
-                    <h2>Articles by {author.name}</h2>
-                    {currentPosts.length > 0 ? (
-                        currentPosts.map(post => (
-                            <div key={post.slug.current} className={styles.post}>
-                                <Link to={`/detail/${post.slug.current}`}>
-                                    <div className={styles.postImg}>
-                                        {post.mainImage && post.mainImage.asset && (
-                                            <img src={post.mainImage.asset.url} alt={post.title} />
-                                        )}
-                                    </div>
-                                    <div className={styles.postTitle}>
-                                        <div className={styles.Refrence}>
-                                            {post.subcategories ? (
-                                                <span className={styles.category}>{post.subcategories.map(category => category.title).join(',')}</span>
-                                            ) : (
-                                                <span className={styles.category}>{post.categories.map(category => category.title).join(',')}</span>
-                                            )}
-                                            <small>{new Date(post.publishedAt).toLocaleDateString()}</small>
-                                        </div>
-                                        <p className={styles.title}>{post.title}</p>
-                                        <div className={styles.subtitle2}>
-                                            <small>{post?.subtitle}</small>
-                                        </div>
-                                    </div>
-                                </Link>
-                                <div className={styles.subtitle1}>
-                                    <small>{post?.subtitle}</small>
+            <div className={styles.container}>
+                <div className={styles.author}>
+                    <div className={styles.authorDetails}>
+                        <div className={styles.authorImg}>
+                            {author.image && (
+                                <img src={urlFor(author.image)} alt={author.name} />
+                            )}
+                        </div>
+                        <div className={styles.texts}>
+                            <p>{author.name}</p>
+                            {author.bio && (
+                                <div className={styles.bio}>
+                                    <PortableText value={author.bio} />
                                 </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No articles found for this author.</p>
-                    )}
+                            )}
+                        </div>
+                    </div>
+
+                    <div className={styles.authorPosts}>
+                        <h2>Articles by {author.name}</h2>
+                        {currentPosts.length > 0 ? (
+                            currentPosts.map(post => (
+                                <div key={post.slug.current} className={styles.post}>
+                                    <Link to={`/detail/${post.slug.current}`}>
+                                        <div className={styles.postImg}>
+                                            {post.mainImage && post.mainImage.asset && (
+                                                <img src={post.mainImage.asset.url} alt={post.title} />
+                                            )}
+                                        </div>
+                                        <div className={styles.postTitle}>
+                                            <div className={styles.Refrence}>
+                                                {(post.subcategories || post.categories)?.map((category) => (
+                                                    <span key={category.slug.current}
+                                                        className={`${styles.category} 
+                                                ${getCategoryClass(category.title)}`}
+                                                    >
+                                                        {category.title}
+                                                    </span>
+                                                ))}
+                                                <small>{new Date(post.publishedAt).toLocaleDateString()}</small>
+                                            </div>
+                                            <p className={styles.title}>{post.title}</p>
+                                            <div className={styles.subtitle2}>
+                                                <small>{post?.subtitle}</small>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                    <div className={styles.subtitle1}>
+                                        <small>{post?.subtitle}</small>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <p>No articles found for this author.</p>
+                        )}
+                    </div>
+                    <Pagination
+                        postsPerPage={postsPerPage}
+                        totalPosts={authorPosts.length}
+                        paginate={paginate}
+                        currentPage={currentPage}
+                        nextPage={nextPage}
+                        prevPage={prevPage}
+                        firstPage={firstPage}
+                        lastPage={lastPage}
+                    />
                 </div>
-                <Pagination
-                    postsPerPage={postsPerPage}
-                    totalPosts={authorPosts.length}
-                    paginate={paginate}
-                    currentPage={currentPage}
-                    nextPage={nextPage}
-                    prevPage={prevPage}
-                    firstPage={firstPage}
-                    lastPage={lastPage}
-                />
             </div>
-        </div>
+
+            <Footer />
+        </>
     );
 }
 

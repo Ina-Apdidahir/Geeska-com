@@ -59,6 +59,26 @@ function Related({ singlePost }) {
     const FourletestPosts = latestPosts.reverse().slice(0, 4);
 
 
+    // Helper function to get category CSS class based on category title
+    const getCategoryClass = (categoryTitle) => {
+        switch (categoryTitle.toLowerCase()) {
+            case 'culture':
+                return styles.Culture;
+            case 'politics':
+                return styles.Politics;
+            case 'interviews':
+                return styles.Interviews;
+            case 'multimedia':
+                return styles.Multimedia;
+            case 'opinion':
+                return styles.Opinion;
+            default:
+                return styles.defaultCategory;
+        }
+    };
+
+
+
     return (
         <>
 
@@ -77,15 +97,15 @@ function Related({ singlePost }) {
                             <div className={styles.Title}>
                                 <div className={styles.detail}>
 
-                                    {post.subcategories ? (
-                                        <Link to={`/category/${post.subcategories?.map(category => category.slug.current)}`}>
-                                            <p className={styles.category}>{post.subcategories.map(category => category.title).join(',')}</p>
+                                    {(post.subcategories || post.categories)?.map((category) => (
+                                        <Link
+                                            key={category.slug.current}
+                                            to={`/category/${category.slug.current}`}
+                                            className={`${styles.category} ${getCategoryClass(category.title)}`}
+                                        >
+                                            {category.title}
                                         </Link>
-                                    ) : (
-                                        <Link to={`/category/${post.categories?.map(category => category.slug.current)}`}>
-                                            <p className={styles.category}>{post.categories.map(category => category.title).join(',')}</p>
-                                        </Link>
-                                    )}
+                                    ))}
 
                                     <small className={styles.author}>{post.author}</small>
                                 </div>

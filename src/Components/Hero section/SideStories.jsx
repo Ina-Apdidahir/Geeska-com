@@ -24,7 +24,8 @@ function SideStories() {
                     alt
                     },
                   categories[]->{
-                        title
+                        title,
+                        slug
                     },
                   "author": author->name
                 }`;
@@ -41,6 +42,25 @@ function SideStories() {
 
         fetchPosts();
     }, []);
+
+
+    // Helper function to get category CSS class based on category title
+    const getCategoryClass = (categoryTitle) => {
+        switch (categoryTitle.toLowerCase()) {
+            case 'culture':
+                return styles.Culture;
+            case 'politics':
+                return styles.Politics;
+            case 'interviews':
+                return styles.Interviews;
+            case 'multimedia':
+                return styles.Multimedia;
+            case 'opinion':
+                return styles.Opinion;
+            default:
+                return styles.defaultCategory;
+        }
+    };
 
 
 
@@ -68,9 +88,15 @@ function SideStories() {
                         )}
                         <div className={styles.content}>
                             <div className={styles.refrence}>
-                                <div className={styles.category}>
-                                    <p>{post.categories.map(category => category.title).join(', ')}</p>
-                                </div>
+                                {(post.subcategories || post.categories)?.map((category) => (
+                                    <Link
+                                        key={category.slug.current}
+                                        to={`/category/${category.slug.current}`}
+                                        className={`${styles.category} ${getCategoryClass(category.title)}`}
+                                    >
+                                        {category.title}
+                                    </Link>
+                                ))}
                                 <p className={styles.auther}>{post.author}</p>
                             </div>
                             <div className={styles.title}>

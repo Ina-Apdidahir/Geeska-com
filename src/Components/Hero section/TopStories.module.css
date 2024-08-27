@@ -10,6 +10,30 @@
     background-color: #231e18;
 }
 
+
+/*_______________________ Category Specific Styles ____________________*/
+.Culture {
+    background-color: #73497c; /* Green */
+  } 
+  .Politics {
+    background-color: #405981; /* Orange */
+  }
+  .Interviews {
+    background-color: #3d3562; /* Pink */
+  }
+  .Multimedia {
+    background-color: #98681f; /* Blue */
+  } 
+  .Opinion {
+    background-color: #20603c; /* Purple */
+  }
+  
+  .defaultCategory {
+    background-color: #ca0909; /* Blue Grey */
+  }
+/*_______________________ Category Specific Styles ____________________*/
+
+
 .stories {
     width: 98%;
     display: flex;
@@ -61,9 +85,8 @@
     display: flex;
     align-items: center;
 }
-.category p {
+.category  {
     cursor: pointer;
-    background-color: #73497c;
     color: #FFFFFF;
     text-transform: uppercase;
     font-size: 10px;
@@ -116,7 +139,14 @@
 
 .movebtn img {
     width: 25px;
-}
+} 
+
+/* .movebtn svg {
+     color: #FFFFFF;
+     width: 3.3rem;
+} */
+
+
 
 .Next {
     right: 0.3rem;
@@ -167,6 +197,12 @@
     .movebtn img{
        width: 30px;
     }
+
+    /* .movebtn svg {
+        color: #FFFFFF;
+        width: 2.4rem;
+    } */
+
     .pagination {
         top: 75%;
         left: 40%;

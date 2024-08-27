@@ -1,13 +1,4 @@
 
-
-.recomonded {
-    width: 100%;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 0.5rem;
-}
-
 /*_______________________ Category Specific Styles ____________________*/
 .Culture {
     background-color: #73497c; /* Green */
@@ -31,19 +22,28 @@
 /*_______________________ Category Specific Styles ____________________*/
 
 
-.recomonded h1 {
+.Related_to_Author {
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+}
+
+.Related_to_Author h1 {
     color: #231e18;
-    font-size: 32px;
+    font-size: 18px;
     font-weight: 200;
     line-height: 40px;
     text-transform: uppercase;
+    margin-bottom: -1rem;
 }
 
 .story:nth-child(1) {
     border-bottom: none;
 }
 
-.recomonded .story {
+.Related_to_Author .story {
     width: 100%;
     display: flex;
     gap: 8px;
@@ -61,7 +61,7 @@
 }
 
 .story .Title {
-    width: 63%;
+    width: 60%;
 }
 
 .Title .detail {
@@ -111,6 +111,11 @@
 
 @media screen and (min-width: 575px) {
  
+    .Related_to_Author h1 {
+        font-size: 26px;
+        margin-bottom: -1rem;
+    }
+
     .story .Title .heading {
         font-size: 19px;
         margin-bottom: 0.25rem;
@@ -122,8 +127,12 @@
 
 @media screen and (min-width: 768px) {
 
-    .story .Title {
-        width: 50%;
+    .Related_to_Author h1 {
+        color: #231e18;
+        font-size: 32px;
+        font-weight: 200;
+        line-height: 40px;
+        text-transform: uppercase;
     }
 
     .Title .detail {
@@ -147,24 +156,6 @@
         margin-bottom: 0.25rem;
         line-height: 106%;
         -webkit-line-clamp: 4;
-    }
-
-
-}
-
-@media screen and (min-width: 1024px)  {
-
-    .story .image {
-        width: 40%;
-    }
-    .recomonded{
-        width:39%;
-    }
-    .story .Title .heading {
-        font-size: 19px;
-        margin-bottom: 0.25rem;
-        line-height: 106%;
-        -webkit-line-clamp: 2;
     }
 
 }

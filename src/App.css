@@ -24,3 +24,30 @@ body {
 a{
   text-decoration: none;
 }
+
+/* Category Specific Styles */
+.Culture {
+  background-color: #73497c; /* Green */
+}
+
+.Politics {
+  background-color: #405981; /* Orange */
+}
+
+.Interviews {
+  background-color: #3d3562; /* Pink */
+}
+
+.Multimedia {
+  background-color: #98681f; /* Blue */
+}
+
+.Opinion {
+  background-color: #20603c; /* Purple */
+}
+
+
+
+.defaultCategory {
+  background-color: #ca0909; /* Blue Grey */
+}

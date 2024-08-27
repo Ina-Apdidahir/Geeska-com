@@ -10,6 +10,30 @@
     background-color: #FFFFFF;
 }
 
+
+/*_______________________ Category Specific Styles ____________________*/
+.Culture {
+    background-color: #73497c; /* Green */
+  } 
+  .Politics {
+    background-color: #405981; /* Orange */
+  }
+  .Interviews {
+    background-color: #3d3562; /* Pink */
+  }
+  .Multimedia {
+    background-color: #98681f; /* Blue */
+  } 
+  .Opinion {
+    background-color: #20603c; /* Purple */
+  }
+  
+  .defaultCategory {
+    background-color: #ca0909; /* Blue Grey */
+  }
+/*_______________________ Category Specific Styles ____________________*/
+
+
 .loading {
     text-align: center;
     font-size: 18px;
@@ -27,13 +51,12 @@
 
 .postdetsils {
     width: 100%;
-    padding: 1.5rem 1rem 1.5rem 1rem;
+    padding: 1.5rem 0.75rem ;
     border-radius: 0.4rem;
 }
 
 .category {
     cursor: pointer;
-    background-color: #A382C6;
     color: #FFFFFF;
     font-size: 14px;
     padding: 0.15rem 1rem;
@@ -152,8 +175,10 @@
     padding: 0 0 8px 0;
 }
 
+
+
+
 .detail .category {
-    background-color: #A382C6;
     color: #FFFFFF;
     font-size: 12px;
     padding: 0.15rem 1rem;

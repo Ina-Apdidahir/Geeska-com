@@ -1,6 +1,8 @@
 
+import Footer from '../FOOTER/Footer.jsx'
 import HeadSection from "../Header Section/Header.jsx";
 import YourComponent from "./Body Structure/Fonsizing.jsx";
+import AuthorLatestPosts from './Author Posts/AuthorPosts.jsx'
 import Related from "./Related/Related.jsx";
 
 import React, { useEffect, useState } from 'react'
@@ -34,7 +36,8 @@ function Details() {
         alt
         },
         categories[]->{
-            title
+            title,
+            slug
         },
           publishedAt,
         "author": author->name,
@@ -89,6 +92,25 @@ function Details() {
     }
 
 
+    // Helper function to get category CSS class based on category title
+    const getCategoryClass = (categoryTitle) => {
+        switch (categoryTitle.toLowerCase()) {
+            case 'culture':
+                return styles.Culture;
+            case 'politics':
+                return styles.Politics;
+            case 'interviews':
+                return styles.Interviews;
+            case 'multimedia':
+                return styles.Multimedia;
+            case 'opinion':
+                return styles.Opinion;
+            default:
+                return styles.defaultCategory;
+        }
+    };
+
+
 
     const [video, setVideo] = useState([]);
     const [error, setError] = useState(null);
@@ -115,28 +137,6 @@ function Details() {
         fetchPosts();
     }, [slug]);
 
-    // const Last4Posts = posts.slice(1, 5);
-    // const LastOne = posts[0];
-
-    // const components = {
-    //     types: {
-    //         space: ({ value }) => {
-    //             return (
-    //                 <div style={{ height: value.height }} className={styles.space} />
-    //             );
-    //         },
-    //         image: ({ value }) => {
-    //             const imageUrl = urlFor(value.asset).url();
-    //             return (
-    //                 <img
-    //                     src={imageUrl}
-    //                     alt={value.alt || 'Image'}
-    //                     className={styles.Image}
-    //                 />
-    //             );
-    //         },
-    //     },
-    // };
 
     const getEmbedUrl = (youtubeUrl) => {
         if (!youtubeUrl) {
@@ -155,22 +155,24 @@ function Details() {
 
 
     return (
-
+<>
         <div className={styles.container}>
             <HeadSection />
             <div className={styles.Details}>
                 {singlePost ? (
                     <div className={styles.postdetsils}>
 
-                        {singlePost.subcategories ? (
-                            <Link to={`/category/${singlePost.subcategories?.map(category => category.slug?.current)}`}>
-                                <p className={styles.category}>{singlePost.subcategories?.map(category => category.title).join(',')}</p>
-                            </Link>
-                        ) : (
-                            <Link to={`/category/${singlePost.categories?.map(category => category.slug?.current)}`}>
-                                <p className={styles.category}>{singlePost.categories?.map(category => category.title).join(',')}</p>
-                            </Link>
-                        )}
+                        <div className={styles.categoriesContainer}>
+                            {(singlePost.subcategories || singlePost.categories)?.map((category) => (
+                                <Link
+                                    key={category.slug.current}
+                                    to={`/category/${category.slug.current}`}
+                                    className={`${styles.category} ${getCategoryClass(category.title)}`}
+                                >
+                                    {category.title}
+                                </Link>
+                            ))}
+                        </div>
 
                         <div className={styles.title}>
                             <h1>{singlePost?.title}</h1>
@@ -199,6 +201,10 @@ function Details() {
                                     </Link>
                                 </div>
                                 <YourComponent singlePost={singlePost} />
+                                <AuthorLatestPosts
+                                    authorSlug={singlePost?.authorSlug}
+                                    authorName={singlePost?.author}
+                                />
                             </div>
                         ) : ''}
 
@@ -223,14 +229,16 @@ function Details() {
                         </div>
 
                         <YourComponent singlePost={video} />
-
                     </div>
                 )}
 
                 <Related singlePost={singlePost} />
             </div>
+
         </div>
 
+        <Footer />
+        </>
     )
 }
 

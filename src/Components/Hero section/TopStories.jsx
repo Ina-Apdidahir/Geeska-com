@@ -7,6 +7,9 @@ import client from '../../../sanity_client/sanityClient';
 import Next from '../../assets/web images/Wnext.png';
 import previous from '../../assets/web images/Wprevious.png';
 
+import right_chevron from '../../assets/web images/right-chevron.png';
+import left_chevron from '../../assets/web images/left-chevron.png';
+
 function TopStories() {
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -26,7 +29,8 @@ function TopStories() {
                     alt
                     },
                   categories[]->{
-                        title
+                        title,
+                        slug
                     },
                   "author": author->name
                 }`;
@@ -71,6 +75,25 @@ function TopStories() {
         setCurrentIndex(index);
     };
 
+    
+    // Helper function to get category CSS class based on category title
+    const getCategoryClass = (categoryTitle) => {
+        switch (categoryTitle.toLowerCase()) {
+            case 'culture':
+                return styles.Culture;
+            case 'politics':
+                return styles.Politics;
+            case 'interviews':
+                return styles.Interviews;
+            case 'multimedia':
+                return styles.Multimedia;
+            case 'opinion':
+                return styles.Opinion;
+            default:
+                return styles.defaultCategory;
+        }
+    };
+
     // if (isLoading) {
     //     return <div className={styles.loading}>Loading...</div>;
     // }
@@ -83,14 +106,14 @@ function TopStories() {
         return <div>No posts found</div>;
     }
 
-
-
+  
     return (
         <>
             {posts && posts.length > 0 && (
                 <div className={styles.TopStories}>
                     <div className={`${styles.movebtn} ${styles.previous}`} onClick={previousSlide}>
-                        <img src={previous} alt="Previous" />
+                        <img src={right_chevron} alt="Previous" />
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8284 12.0005L14.6569 14.8289L13.2426 16.2431L9 12.0005L13.2426 7.75781L14.6569 9.17203L11.8284 12.0005Z"></path></svg> */}
                     </div>
                     <div className={styles.storiesContainer}>
                         {Last5Posts.map((post, index) => (
@@ -103,9 +126,15 @@ function TopStories() {
                                     </div>
                                 )}
                                 <div className={styles.refrence}>
-                                    <div className={styles.category}>
-                                        <p>{post.categories.map(category => category.title).join(', ')}</p>
-                                    </div>
+                                    {(post.subcategories || post.categories)?.map((category) => (
+                                        <Link
+                                            key={category.slug.current}
+                                            to={`/category/${category.slug.current}`}
+                                            className={`${styles.category} ${getCategoryClass(category.title)}`}
+                                        >
+                                            {category.title}
+                                        </Link>
+                                    ))}
                                     <p className={styles.auther}>{post.author}</p>
                                 </div>
                                 <Link to={`/detail/${post.slug.current}`}>
@@ -116,7 +145,8 @@ function TopStories() {
                         ))}
                     </div>
                     <div className={`${styles.movebtn} ${styles.Next}`} onClick={nextSlide}>
-                        <img src={Next} alt="Next" />
+                        <img src={left_chevron} alt="Next" />
+                        {/* <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.1717 12.0005L9.34326 9.17203L10.7575 7.75781L15.0001 12.0005L10.7575 16.2431L9.34326 14.8289L12.1717 12.0005Z"></path></svg> */}
                     </div>
 
                     {/* Pagination */}
