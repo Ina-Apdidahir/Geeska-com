@@ -10,7 +10,12 @@
     overflow: hidden;
     background-color: #FFFFFF;
 }
-
+.author{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .authorDetails {
     width: 100%;
     display: flex;
@@ -32,23 +37,25 @@
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Author bio styling */
-.authorDetails .bio {
-    font-size: 1rem;
+.authorDetails .bio p{
+    font-size: 14px;
     line-height: 1.6;
+    font-weight: 300;
     color: #555;
 }
 
 /* Section for the author's articles */
 .authorPosts h2 {
     color: #231e18;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 200;
     line-height: 40px;
     text-transform: uppercase;
-    margin-top: 64px;
+    margin-top: 54px;
     border-bottom: 1px rgb(35 30 24 / 30%) solid;
     padding-bottom: 16px;
     margin-bottom: 0;
@@ -59,19 +66,16 @@
 .post {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
-    padding: 15px 8px;
-    border: 1px solid #eee;
-    border-radius: 10px;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px rgb(35 30 24 / 30%) solid;
     transition: box-shadow 0.3s ease;
 }
 .post a{
-    display: flex;
     width: 100%;
-}
-.post:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
 }
 
 /* Post image styling */
@@ -94,16 +98,22 @@
     margin-bottom:  0.5rem;
 }
 .postTitle{
-    width: 58%;
+    width: 60%;
 }
 .postTitle .title {
-     font-size: 16px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 106%;
     text-decoration: none;
     color: #231e18;
     margin-bottom: 4px;
-    display: block;
+
+    flex: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .category{
@@ -122,9 +132,60 @@
     font-size: 10px;
     color: #888;
 }
+.subtitle2{
+    display: none;
+}
+.post .subtitle1 small{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 120%;
+    text-align: justify;
+    color: #231e18;
+    margin: 0;
+    margin-top: 8px;
+    flex: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 
+@media screen and (min-width: 525px){
+
+    .author{
+        width: 98%;
+    }
+
+    .authorDetails {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .postTitle .title {
+        font-size: 18px;
+        font-weight: 400;
+       -webkit-line-clamp: 5;
+   }
+}
 
 @media screen and (min-width: 768px) {
+
+    .author{
+        width: 96%;
+    }
+
+    .authorDetails .bio p{
+        font-size: 16px;
+    }
+    .authorPosts h2 {
+        font-size: 32px;
+        font-weight: 200;
+        line-height: 40px;
+    }
 
     .postTitle .title {
         font-size: 20px;
@@ -143,4 +204,50 @@
         font-size: 14px;
         color: #888;
     }
+    .post .subtitle1 small{
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 120%;
+        -webkit-line-clamp: 3;
+    }
+}
+
+@media screen and (min-width: 1024px){
+
+    .authorDetails{
+        width: 70%;
+    }
+    .author{
+        width: 92%;
+
+    }
+
+    .postTitle .title {
+        font-size: 24px;
+        margin-bottom: 0;
+        line-height: 106%;
+    }
+
+    .subtitle1{
+        display: none;
+    }
+    .post .subtitle2{
+        display: initial;
+    }
+    .post .subtitle2 small{
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 120%;
+        text-align: justify;
+        color: #231e18;
+        margin: 0;
+        margin-top: 8px;
+        flex: 98%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+
 }

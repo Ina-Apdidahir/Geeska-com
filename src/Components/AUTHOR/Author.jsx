@@ -5,11 +5,16 @@ import { urlFor } from '../../../sanity_client/sanityClient';
 import styles from './Author.module.css';
 import { PortableText } from '@portabletext/react';
 
+import Pagination from './Pagination';
+
 function Author() {
     const [author, setAuthor] = useState({});
     const [authorPosts, setAuthorPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const { slug } = useParams(); // Get the slug from the URL parameters
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const postsPerPage = 3; // Number of posts per page
 
     useEffect(() => {
         // Query to fetch author details and their posts
@@ -21,6 +26,7 @@ function Author() {
           "posts": *[ _type == "post" && author._ref == ^._id] | order(_createdAt desc) {
             title,
             slug,
+            subtitle,
             mainImage {
               asset -> {
                 _id,
@@ -52,6 +58,36 @@ function Author() {
             });
     }, [slug]);
 
+
+    // Get current posts for pagination
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = authorPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Pagination functions
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const nextPage = () => {
+        if (currentPage < Math.ceil(authorPosts.length / postsPerPage)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    const prevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const firstPage = () => {
+        setCurrentPage(1);
+    };
+
+    const lastPage = () => {
+        setCurrentPage(Math.ceil(authorPosts.length / postsPerPage));
+    };
+
+
     if (isLoading) {
         return <p>Loading...</p>;
     }
@@ -77,8 +113,8 @@ function Author() {
 
                 <div className={styles.authorPosts}>
                     <h2>Articles by {author.name}</h2>
-                    {authorPosts.length > 0 ? (
-                        authorPosts.map(post => (
+                    {currentPosts.length > 0 ? (
+                        currentPosts.map(post => (
                             <div key={post.slug.current} className={styles.post}>
                                 <Link to={`/detail/${post.slug.current}`}>
                                     <div className={styles.postImg}>
@@ -96,14 +132,30 @@ function Author() {
                                             <small>{new Date(post.publishedAt).toLocaleDateString()}</small>
                                         </div>
                                         <p className={styles.title}>{post.title}</p>
+                                        <div className={styles.subtitle2}>
+                                            <small>{post?.subtitle}</small>
+                                        </div>
                                     </div>
                                 </Link>
+                                <div className={styles.subtitle1}>
+                                    <small>{post?.subtitle}</small>
+                                </div>
                             </div>
                         ))
                     ) : (
                         <p>No articles found for this author.</p>
                     )}
                 </div>
+                <Pagination
+                    postsPerPage={postsPerPage}
+                    totalPosts={authorPosts.length}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                    nextPage={nextPage}
+                    prevPage={prevPage}
+                    firstPage={firstPage}
+                    lastPage={lastPage}
+                />
             </div>
         </div>
     );
