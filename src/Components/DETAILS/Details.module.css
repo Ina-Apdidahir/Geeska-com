@@ -75,6 +75,12 @@
     align-items: center;
     gap: 0.5rem;
 }
+.Blog_author .author a{
+    display: flex;
+    align-items: center;
+    color: #000000;
+    gap: 0.25rem;
+}
 .Blog_author .author img{
     width: 3rem;
     height: 3rem;
