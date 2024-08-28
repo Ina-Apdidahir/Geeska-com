@@ -77,7 +77,7 @@ const YourComponent = ({ singlePost, video }) => {
                 </div>
             </div>
 
-            {singlePost.subtitle && (
+            {singlePost?.subtitle && (
                 <h2 className={styles.subtitle}>{singlePost?.subtitle}</h2>
             )}
             <div className={styles.Blog_body}>

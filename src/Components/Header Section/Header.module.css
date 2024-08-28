@@ -310,15 +310,22 @@ header a {
     gap: 0.5rem;
 }
 .post img{
-    width: 45%;
+    width: 40%;
 }
 .post a{
     text-decoration: none;
     color: #FFFFFF;
     font-size: 14px;
+
+    flex: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
-@media screen and (min-width: 525px){
+/* @media screen and (min-width: 525px){
 
     .post img{
         width: 35%;
@@ -327,15 +334,13 @@ header a {
         font-size: 16px;
         font-weight: 500;
     }
-}
-@media screen and (min-width: 625px){
+} */
+@media screen and (min-width: 525px){
 
-    .post img{
-        width: 25%;
-    }
-    .post p{
-        width: 55%;
-        font-size: 18px;
+    .post {
+        width: 75%;
+        display: flex;
+        gap: 0.5rem;
     }
 }
 

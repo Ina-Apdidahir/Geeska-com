@@ -48,6 +48,7 @@
 }
 .firstPost .postTitle{
     width: 100%;
+    margin-top: 0.5rem;
 }
 .firstPost .subtitle1 small{
     font-size: 14px;
@@ -86,6 +87,8 @@
 .postImg {
     width: 40%;
     margin-right: 10px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
 }
 .postImg img {
     object-fit: cover;
@@ -161,6 +164,26 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+
+.firstPost:hover .postImg img{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.4s ease-in-out;
+}
+.post:hover .postImg img{
+    cursor: pointer;
+    transform: scale(1.03);
+    transition:  all 0.4s ease-in-out;
+}
+.firstPost:hover .title,
+.post:hover .title{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+
 
 @media screen and (min-width: 525px){
 

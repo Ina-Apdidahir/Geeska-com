@@ -1,4 +1,3 @@
-
 .container {
     min-width: 100%;
     display: flex;
@@ -9,5 +8,256 @@
     padding: 2rem 0.5rem;
     overflow: hidden;
     background-color: #FFFFFF;
-    margin-top: 60px;
+    margin-top: 30px;
+}
+
+.Category_Container {
+    width: 100%;
+}
+
+.Category {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+/* Section for the author's articles */
+.CategoryPosts h2 {
+    color: #231e18;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    /* border-bottom: 1px rgb(35 30 24 / 30%) solid; */
+    padding-bottom: 10px;
+}
+
+.firstPost {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px rgb(35 30 24 / 30%) solid;
+}
+
+.firstPost a {
+    width: 100%;
+}
+
+.firstPost .video {
+    width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.firstPost .video iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.firstPost .postTitle {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.postTitle .title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 106%;
+    text-decoration: none;
+    color: #231e18;
+    margin-bottom: 4px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.firstPost .subtitle1 {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 120%;
+    text-align: justify;
+    color: #231e18;
+    margin: 0;
+    margin-top: 8px;
+    flex: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+/* Styling each post */
+.post {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px rgb(35 30 24 / 30%) solid;
+    transition: box-shadow 0.3s ease;
+}
+
+.post a {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.post .postTitle {
+    width: 52%;
+}
+
+
+.post .video {
+    width: 47%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.post .video iframe {
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+}
+
+.post .title {
+    font-size: 18px;
+    margin-bottom: 0;
+    line-height: 106%;
+    font-weight: 400;
+    text-decoration: none;
+    color: #231e18;
+
+    flex: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+
+.postTitle small {
+    font-size: 10px;
+    font-weight: 300;
+    line-height: 120%;
+    color: #231e18;
+}
+
+.post .subtitle1 {
+    display: none;
+}
+
+.post .subtitle2 {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 120%;
+    text-align: justify;
+    color: #231e18;
+    margin: 0;
+    margin-top: 8px;
+    flex: 98%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.firstPost:hover .video iframe,
+.post:hover .video iframe {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.4s ease-in-out;
+}
+
+.firstPost:hover .title {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+.post:hover .title {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 575px) {
+
+    .firstPost .video iframe {
+        width: 100%;
+        height: 300px;
+    }
+
+    .post .postTitle {
+        width: 55%;
+    }
+
+    .post .video {
+        width: 45%;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+
+    .post .video iframe {
+        object-fit: cover;
+        width: 100%;
+        height: 140px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .Category_Container {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .Category_Container {
+        margin-top: 2rem;
+        width: 96%;
+        display: flex;
+    }
+
+    .Category {
+        width: 60%;
+    }
+
+    .CategoryPosts h2 {
+        font-size: 32px;
+        line-height: 65%;
+    }
+
+    .post .subtitle2 {
+        display: none;
+    }
+
+    .post .subtitle1 {
+        display: initial;
+    }
+
+
+    .post .subtitle1 {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 120%;
+        text-align: justify;
+        color: #231e18;
+        margin: 0;
+        margin-top: 8px;
+        flex: 98%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
 }
