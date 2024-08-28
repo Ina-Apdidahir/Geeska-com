@@ -11,23 +11,7 @@ const Pagination = ({
     firstPage,
     lastPage,
 }) => {
-    const pageNumbers = [];
     const totalPages = Math.ceil(totalPosts / postsPerPage);
-
-    // Calculate the range of pages to display
-    let startPage = Math.max(currentPage - 2, 1);
-    let endPage = Math.min(currentPage + 2, totalPages);
-
-    // Ensure only 4 pages are displayed
-    if (currentPage <= 2) {
-        endPage = Math.min(4, totalPages);
-    } else if (currentPage >= totalPages - 1) {
-        startPage = Math.max(totalPages - 3, 1);
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-        pageNumbers.push(i);
-    }
 
     const handleClick = (e, pageNumber) => {
         e.preventDefault();
@@ -65,31 +49,39 @@ const Pagination = ({
 
             <ul className={styles.pagination}>
                 {/* Show dots if there's a gap between first page and startPage */}
-                {startPage > 1 && (
+                {currentPage > 2 && (
                     <>
-                        <li>
+                        <li className={styles.StartingPage} >
                             <a href="" onClick={(e) => handleClick(e, 1)}>1</a>
                         </li>
-                        {startPage > 2 && <li className={styles.dots}>...</li>}
+                        {currentPage > 3 && <li className={styles.dots}>...</li>}
                     </>
                 )}
 
-                {pageNumbers.map((number) => (
-                    <li
-                        key={number}
-                        className={currentPage === number ? styles.active : ''}
-                    >
-                        <a href="" onClick={(e) => handleClick(e, number)}>{number}</a>
+                {/* Previous Page (if exists) */}
+                {currentPage > 1 && (
+                    <li>
+                        <a href="" onClick={(e) => handleClick(e, currentPage - 1)}>{currentPage - 1}</a>
                     </li>
-                ))}
+                )}
+
+                {/* Current Page */}
+                <li className={styles.active}>
+                    <a href="" onClick={(e) => handleClick(e, currentPage)}>{currentPage}</a>
+                </li>
+
+                {/* Next Page (if exists) */}
+                {currentPage < totalPages && (
+                    <li>
+                        <a href="" onClick={(e) => handleClick(e, currentPage + 1)}>{currentPage + 1}</a>
+                    </li>
+                )}
 
                 {/* Show dots if there's a gap between endPage and last page */}
-                {endPage < totalPages && (
+                {currentPage < totalPages - 1 && (
                     <>
-                        {endPage < totalPages - 1 && (
-                            <li className={styles.dots}>...</li>
-                        )}
-                        <li>
+                        {currentPage < totalPages - 2 && <li className={styles.dots}>...</li>}
+                        <li className={styles.EndingPage} >
                             <a href="" onClick={(e) => handleClick(e, totalPages)}>{totalPages}</a>
                         </li>
                     </>

@@ -55,6 +55,11 @@ function CategoryPage() {
         fetchPosts();
     }, [slug]);
 
+    useEffect(() => {
+        // Scroll to top when currentPage changes
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
+
     // Format the publishedAt date
     const formatDate = (timestamp) => {
         const date = new Date(timestamp);
@@ -90,6 +95,11 @@ function CategoryPage() {
         return <p>Loading...</p>;
     }
 
+    // console.log(posts.categories.map((categ)=> categ.title))
+    const categoryTitle = posts.length > 0 && posts[0].categories && posts[0].categories.length > 0 
+    ? posts[0].categories[0].title 
+    : 'Unknown Category';
+
     return (
         <>
             <HeadSection />
@@ -98,12 +108,12 @@ function CategoryPage() {
             <div className={styles.Category_Container}>
                 <div className={styles.Category}>
                     <div className={styles.CategoryPosts}>
-                        <h2>Politics Articles</h2>
+                        <h2> {categoryTitle} Articles</h2>
                         {currentPosts.length > 0 ? (
                             currentPosts.map((post, index) => (
                                 <div
                                     key={post.slug.current}
-                                    className={index === 0 ? styles.firstPost : styles.post}
+                                    className={index === 0 && currentPage === 1 ? styles.firstPost : styles.post}
                                 >
                                     <Link to={`/detail/${post.slug.current}`}>
                                         <div className={styles.postImg}>
@@ -119,15 +129,11 @@ function CategoryPage() {
                                                 <small>{formatDate(post.publishedAt)}</small>
                                             </div>
                                             <p className={styles.title}>{post.title}</p>
-                                            {index === 0 ? (
+                                           
                                                 <div className={styles.subtitle2}>
                                                     <small>{post.subtitle}</small>
                                                 </div>
-                                            ) : (
-                                                <div className={styles.subtitle2}>
-                                                    <small>{post.subtitle}</small>
-                                                </div>
-                                            )}
+                                           
                                         </div>
                                     </Link>
                                     <div className={styles.subtitle1}>

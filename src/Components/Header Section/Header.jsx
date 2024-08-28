@@ -78,7 +78,7 @@ function HeadSection() {
                                     <Link to="/category/politics">POLITICS</Link>
                                 </li>
                                 <li onClick={handleCloseClick} >
-                                    <Link to="/category/opinion">OPINION</Link>
+                                    <Link to="/opinion">OPINION</Link>
                                 </li>
                                 <li onClick={handleCloseClick} >
                                     <Link to="/category/culture">CULTURE</Link>
@@ -108,7 +108,7 @@ function HeadSection() {
                         <ul>
                             <li><Link to="/">HOME</Link></li>
                             <li><Link to="/category/politics">POLITICS</Link></li>
-                            <li><Link to="/category/opinion">OPINION</Link></li>
+                            <li><Link to="/opinion">OPINION</Link></li>
                             <li><Link to="/category/culture">CULTURE</Link></li>
 
                             <li><Link to="/multimedia">MULTMEDIA</Link></li>
