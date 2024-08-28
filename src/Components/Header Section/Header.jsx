@@ -71,12 +71,25 @@ function HeadSection() {
                     <div className={style.Nav_classes}>
                         <div className={style.Nav_side_menue}>
                             <ul>
-                                <li><Link to="/">HOME</Link></li>
-                                <li><Link to="/politics">POLITICS</Link></li>
-                                <li><Link to="/opinion">OPINION</Link></li>
-                                <li><Link to="/culture">CULTURE</Link></li>
-                                <li><Link to="/multimedia">MULTMEDIA</Link></li>
-                                <li><Link to="/interviews">INTERVIEWS</Link></li>
+                                <li onClick={handleCloseClick} >
+                                    <Link to="/">HOME</Link>
+                                </li>
+                                <li onClick={handleCloseClick} >
+                                    <Link to="/category/politics">POLITICS</Link>
+                                </li>
+                                <li onClick={handleCloseClick} >
+                                    <Link to="/category/opinion">OPINION</Link>
+                                </li>
+                                <li onClick={handleCloseClick} >
+                                    <Link to="/category/culture">CULTURE</Link>
+                                </li>
+                                <li onClick={handleCloseClick} >
+                                    <Link to="/multimedia">MULTMEDIA</Link>
+                                </li>
+                                <li onClick={handleCloseClick} >
+                                    <Link to="/category/interviews">INTERVIEWS</Link>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -94,11 +107,12 @@ function HeadSection() {
                     <div className={style.nav_menue}>
                         <ul>
                             <li><Link to="/">HOME</Link></li>
-                            <li><Link to="/politics">POLITICS</Link></li>
-                            <li><Link to="/opinion">OPINION</Link></li>
-                            <li><Link to="/culture">CULTURE</Link></li>
+                            <li><Link to="/category/politics">POLITICS</Link></li>
+                            <li><Link to="/category/opinion">OPINION</Link></li>
+                            <li><Link to="/category/culture">CULTURE</Link></li>
+
                             <li><Link to="/multimedia">MULTMEDIA</Link></li>
-                            <li><Link to="/interviews">INTERVIEWS</Link></li>
+                            <li><Link to="/category/interviews">INTERVIEWS</Link></li>
                         </ul>
                     </div>
                     <div className={style.icons}>

@@ -10,33 +10,42 @@
 
 /*_______________________ Category Specific Styles ____________________*/
 .Culture {
-    background-color: #73497c; /* Green */
+    background-color: #73497c; 
+    color: #FFFFFF;
   } 
   .Politics {
-    background-color: #405981; /* Orange */
+    background-color: #405981; 
+    color: #FFFFFF;
   }
   .Interviews {
-    background-color: #3d3562; /* Pink */
+    background-color: #3d3562; 
+    color: #FFFFFF;
   }
   .Multimedia {
-    background-color: #98681f; /* Blue */
+    background-color: #98681f; 
+    color: #FFFFFF;
   } 
   .Opinion {
-    background-color: #20603c; /* Purple */
+    background-color: #20603c; 
+    color: #FFFFFF;
   }
   
   .defaultCategory {
-    background-color: #ca0909; /* Blue Grey */
+    background-color: #ca0909; 
+    color: #FFFFFF;
   }
 /*_______________________ Category Specific Styles ____________________*/
 
 
 .recomonded h1 {
     color: #231e18;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 200;
     line-height: 40px;
     text-transform: uppercase;
+    border-bottom: 1px rgb(35 30 24 / 30%) solid;
+    padding-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .story:nth-child(1) {
@@ -47,7 +56,7 @@
     width: 100%;
     display: flex;
     gap: 8px;
-    border-top: 0.1px solid #020202a7;
+    border-bottom: 1px rgb(35 30 24 / 30%) solid;
     padding: 0.5rem 0 ;
 }
 
@@ -78,7 +87,6 @@
     font-weight: 300;
     line-height: 12px;
     text-align: center;
-    color: #FFFFFF;
     text-transform: uppercase;
     display: inline-block;
 }

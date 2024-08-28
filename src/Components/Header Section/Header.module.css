@@ -9,6 +9,11 @@
     /* margin-bottom: 30px; */
 }
 
+.detail .category {
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 0.15rem 1rem;
+}
 
 .head_cont {
     position: fixed;

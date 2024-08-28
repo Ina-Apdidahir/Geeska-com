@@ -132,15 +132,15 @@ function Related({ singlePost }) {
                             <div className={styles.Title}>
                                 <div className={styles.detail}>
 
-                                    {post.subcategories ? (
-                                        <Link to={`/category/${post.subcategories?.map(category => category.slug.current)}`}>
-                                            <p className={styles.category}>{post.subcategories.map(category => category.title).join(',')}</p>
+                                    {(post.subcategories || post.categories)?.map((category) => (
+                                        <Link
+                                            key={category.slug.current}
+                                            to={`/category/${category.slug.current}`}
+                                            className={`${styles.category} ${getCategoryClass(category.title)}`}
+                                        >
+                                            {category.title}
                                         </Link>
-                                    ) : (
-                                        <Link to={`/category/${post.categories?.map(category => category.slug.current)}`}>
-                                            <p className={styles.category}>{post.categories.map(category => category.title).join(',')}</p>
-                                        </Link>
-                                    )}
+                                    ))}
 
                                     <small className={styles.author}>{post.author}</small>
                                 </div>
