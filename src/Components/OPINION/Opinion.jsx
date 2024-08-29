@@ -224,7 +224,7 @@ function Opinion() {
                             lastPage={lastPage}
                         />
                     </div>
-                    <Related singlePost={posts} />
+                    <Related singlePost={currentPosts} />
                 </div>
             </div>
 

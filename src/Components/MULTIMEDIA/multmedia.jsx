@@ -25,6 +25,7 @@ function MULTIMEDIA() {
                     title,
                     body,
                     slug,
+                    publishedAt,
                     youtubeUrl
                 }`;
 
@@ -149,7 +150,8 @@ function MULTIMEDIA() {
                                             )}
 
                                             <div className={styles.postTitle}>
-                                                <small className={styles.title}>{post.title}</small>
+                                                <small>{formatDate(post.publishedAt)}</small>
+                                                <p className={styles.title}>{post.title}</p>
 
                                                 <div className={styles.subtitle1}>
                                                     <PortableText value={post?.body} components={components} />

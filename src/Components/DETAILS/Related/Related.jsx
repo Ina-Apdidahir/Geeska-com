@@ -85,7 +85,7 @@ function Related({ singlePost }) {
             {FourrecommendedPosts && FourrecommendedPosts.length > 0 ? (
                 <div className={styles.recomonded}>
                     <div className={styles.title}>
-                        <h1>Related Posts</h1>
+                        <h1>Most read Articls</h1>
                     </div>
                     {FourrecommendedPosts.map((post) => (
                         <div className={styles.story} key={post.slug.current}>
